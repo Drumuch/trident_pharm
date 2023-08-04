@@ -1,0 +1,121 @@
+.fp-footer-logo {
+  border-radius: 0 0 15px 0;
+  @include media-breakpoint-up(lg) {
+    border-radius: 0 0 25px 0;
+  }
+  img {
+    @include media-breakpoint-down(lg) {
+      width: 80px;
+    }
+  }
+  .bottom-corner {
+    top: 100%;
+    left: 0;
+    width: 15px;
+    height: 15px;
+    &:after {
+      content: '';
+      width: 100%;
+      height: 100%;
+      background-color: rgba(var(--accent-2), 0.15);
+      position: absolute;
+      left: 0;
+      top: 0;
+      border-radius: 100% 0% 0% 100% / 100% 100% 0% 0%;
+    }
+  }
+  .right-corner {
+    top: 0;
+    left: 100%;
+    width: 15px;
+    height: 15px;
+    @include media-breakpoint-up(lg) {
+      width: 25px;
+      height: 25px;
+    }
+    &:after {
+      content: '';
+      width: 100%;
+      height: 100%;
+      background-color: rgba(var(--accent-2), 0.15);
+      position: absolute;
+      left: 0;
+      top: 0;
+      border-radius: 100% 0% 0% 100% / 100% 100% 0% 0%;
+    }
+  }
+}
+
+.fp-footer-menu-toggle {
+  @include media-breakpoint-down(md) {
+    position: relative;
+    &:after {
+      content: '';
+      position: absolute;
+      width: 12px;
+      height: 6px;
+      background-image: url("data:image/svg+xml,%3Csvg width='13' height='8' viewBox='0 0 13 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6.5 7L12 1' stroke='%23343434'/%3E%3C/svg%3E%0A");
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      left: calc(100% + 10px);
+      top: 50%;
+      transform: translateY(-50%);
+      @include fp-transition('transform');
+    }
+    &.open:after {
+      transform: translateY(-50%) rotate(180deg);
+    }
+  }
+}
+
+.fp-footer-nav {
+  margin: 0;
+  padding: 0;
+  li + li {
+    margin-top: 10px;
+    @include media-breakpoint-up(md) {
+      margin-top: 20px;
+    }
+  }
+  a {
+    color: rgb(var(--accent-2));
+    @media (hover) {
+      &:hover {
+        //text-decoration: underline;
+        color: rgb(var(--accent-1));
+      }
+    }
+  }
+  &.dropdown {
+    @include media-breakpoint-down(md) {
+      margin-top: 15px;
+      display: none;
+    }
+    &.open {
+      display: block;
+    }
+  }
+  &--policy {
+    @include media-breakpoint-only(md) {
+      display: flex;
+      gap: 20px;
+      li + li {
+        margin-top: 0;
+      }
+    }
+    a {
+      font-size: 1.3rem !important;
+      font-weight: $font-weight-light !important;
+      text-decoration: underline;
+      @include media-breakpoint-up(lg) {
+        font-size: 1.5rem !important;
+      }
+      @media (hover) {
+        &:hover {
+          //text-decoration: none;
+        }
+      }
+    }
+  }
+}

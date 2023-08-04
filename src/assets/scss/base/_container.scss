@@ -1,0 +1,9 @@
+.container,
+.container-fluid {
+  @each $size, $value in $container-padding {
+    @include media-breakpoint-up($size) {
+      padding-left: $value;
+      padding-right: $value;
+    }
+  }
+}

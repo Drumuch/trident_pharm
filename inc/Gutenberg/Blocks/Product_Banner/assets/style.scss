@@ -1,0 +1,23 @@
+@import "abstracts/abstracts";
+
+.fp-product-banner-block {
+
+}
+
+.fp-banners-wrap {
+  max-width: 460px;
+  @include media-breakpoint-up(lg) {
+    max-width: 800px;
+  }
+}
+
+.fp-banner-item {
+  &__image-wrap {
+    max-width: 190px;
+    height: 150px;
+    width: 100%;
+    img {
+      object-fit: contain;
+    }
+  }
+}

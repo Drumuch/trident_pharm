@@ -1,0 +1,25 @@
+{% if products | length > 0 %}
+	<section {{ anchor }} {{ attribute }}>
+		<div class="position-relative pt-130 pb-94 border-radius-15 border-radius-xl-45 bg-3 px-10 px-md-40 px-lg-70">
+			{% if title %}
+				<div class="overflow-hidden">
+					<div class="position-absolute top-0 start-50 translate-middle-x">
+						<div class="fp-section-heading-wrap position-relative bg-body px-24 pb-24 px-lg-50 pb-lg-40 px-xl-70 pb-xl-45">
+							<span class="corner left"></span>
+							<span class="corner right"></span>
+							<h2 class="position-relative z-1 text-nowrap text-center text-1 mb-0">{{ title }}</h2>
+						</div>
+					</div>
+				</div>
+			{% endif %}
+			<div class="fp-latest-product-block__row d-flex gap-10 gap-md-20 gap-lg-30 pb-54">
+				{% for post in products %}
+					{% include 'partial/product-card.twig' %}
+				{% endfor %}
+			</div>
+			{% if link.title and link.url %}
+				<a class="fp-latest-product-block__archive-link fp-circle-button" href="{{ link.url }}" target="{{ link.target ?: '_self' }}">{{ link.title }}</a>
+			{% endif %}
+		</div>
+	</section>
+{% endif %}

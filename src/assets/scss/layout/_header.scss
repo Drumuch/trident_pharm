@@ -1,0 +1,321 @@
+/*! purgecss start ignore */
+
+.fp-bar {
+  background: linear-gradient(90deg, rgba(var(--accent-1), 0.15), rgb(var(--accent-1)), rgba(var(--accent-1), 0.15));
+
+  &__content {
+    a {
+      text-decoration: underline;
+      @media (hover) {
+        &:hover {
+          color: rgb(var(--accent-2));
+        }
+      }
+    }
+    p {
+      margin-bottom: 12px;
+    }
+    & > :last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.fp-header {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 99;
+  @include fp-transition('transform, box-shadow');
+  &.fp-slide-out {
+    box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.05);
+    transform: translateY(calc(var(--header-bar-height) * -1));
+  }
+  &.has-shadow {
+    box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.05);
+  }
+}
+
+.fp-burger-menu {
+  margin-left: 13px;
+  position: relative;
+  width: 26px;
+  height: 26px;
+  background-color: transparent;
+  border: none;
+  span {
+    display: block;
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background: rgb(var(--accent-2));
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+    &:nth-child(1) {
+      top: 6px;
+    }
+    &:nth-child(2),&:nth-child(3) {
+      top: 12px;
+    }
+    &:nth-child(4) {
+      top: 18px;
+    }
+  }
+  &:focus {
+    outline: none;
+  }
+  &.open span{
+    &:nth-child(1) {
+      top: 12px;
+      width: 0;
+      left: 50%;
+    }
+    &:nth-child(2) {
+      transform: rotate(45deg);
+    }
+    &:nth-child(3) {
+      transform: rotate(-45deg);
+    }
+    &:nth-child(4) {
+      top: 12px;
+      width: 0;
+      left: 50%;
+    }
+  }
+
+}
+
+.fp-search-button {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  &:focus {
+    outline: none;
+  }
+}
+
+.fp-search-form {
+  .icon {
+    left: 30px;
+  }
+  input {
+    padding: 20px 20px 20px 55px;
+    border-radius: 35px;
+    box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.05);
+    min-height: 70px;
+    border: 1px solid var(--body);
+    min-width: 300px;
+    @include fp-transition('border-color');
+    @include media-breakpoint-up(md) {
+      min-width: 460px;
+    }
+    &:focus {
+      border-color: rgb(var(--accent-2));
+      outline: none;
+    }
+    &::placeholder {
+      color: rgba(var(--text), 0.6);
+    }
+  }
+  button {
+    width: 32px;
+    height: 32px;
+    background: var(--body);
+    color: rgb(var(--accent-2));
+    padding: 0;
+    &:focus, &:hover {
+      background: rgb(var(--accent-2));
+      color: var(--body);
+    }
+  }
+}
+
+.offcanvas {
+  &.offcanvas-top {
+    //top: var(--header-height);
+    //height: calc(100vh - (var(--header-height))) !important;
+  }
+  &.offcanvas-end {
+    //top: var(--header-height);
+  }
+}
+
+.navbar-nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@include media-breakpoint-down(lg) {
+  /* TOP BAR Mobile STYLING */
+
+  .title-bar {
+    text-align: right;
+
+    .navbar-toggler {
+      padding: 0;
+      border: none;
+      background-color: transparent;
+    }
+  }
+
+  .navbar-nav {
+    display: block;
+    .nav-item + .nav-item {
+      margin-top: 60px;
+    }
+    .nav-item {
+      > .nav-link {
+        padding: 0;
+        &:hover,
+        &:focus {
+          &,
+          & + .submenu-toggle {
+            color: rgb(var(--accent-2));
+            outline: none;
+          }
+        }
+      }
+
+      &.current-menu-item,
+      &.current_page_ancestor,
+      &.current_page_parent {
+        > a,
+        .submenu-toggle {
+          color: rgb(var(--accent-2));
+        }
+      }
+
+      &[aria-expanded='true'] {
+        > a,
+        .submenu-toggle {
+          background: rgb(var(--accent-2));
+          /* menu item background color on open dropdown */
+        }
+      }
+    }
+
+    .submenu-toggle {
+      padding: 0;
+    }
+
+    .submenu {
+      a {
+        // TODO: Replace with bootstrap vars
+        //padding-left: #{get-side($accordionmenu-padding, 'left') * 1.65};
+      }
+
+      .submenu {
+        a {
+          // TODO: Replace with bootstrap vars
+          //padding-left: #{get-side($accordionmenu-padding, 'left') * 2.3};
+        }
+      }
+    }
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  /* TOP BAR STYLING */
+
+  .navbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: row;
+    //justify-content: flex-start;
+
+    /* Align menu items to the right */
+    justify-content: flex-end;
+
+    /* Align menu items to the center */
+    // justify-content: center;
+
+    .nav-item {
+      > .nav-link {
+        /* Regular menu item style */
+        color: rgb(var(--text));
+        padding: 0 10px;
+        font-size: 1.6rem;
+        line-height: 1.5;
+        font-weight: $font-weight-semibold;
+        @include media-breakpoint-up(xl) {
+          padding: 0 18px;
+        }
+        &:hover {
+          /* menu item style on hover */
+          color: rgb(var(--accent-2));
+        }
+        &:focus {
+          outline: none;
+        }
+      }
+
+      &.current-menu-item,
+      &.current_page_ancestor,
+      &.current_page_parent {
+        > a {
+          /* Style of Current page and Ancestor page */
+          color: rgb(var(--accent-2));
+        }
+      }
+
+      &.has-dropdown {
+        > a {
+          /* Style of item with dropdown */
+        }
+      }
+
+      &.is-active > a {
+        /* Parent link style on dropdown hover */
+        background: transparent;
+        color: rgb(var(--accent-2));
+      }
+    }
+
+    /* Dropdown item styling */
+
+    .submenu {
+      z-index: 11;
+      display: none;
+
+      &.js-dropdown-active {
+        display: block;
+      }
+
+      li {
+        > a {
+          /* Regular link in dropdown */
+          background: transparent;
+          color: rgb(var(--text));
+          line-height: 30px;
+
+          &:hover {
+            /* Dropdown link on hover */
+            color: rgb(var(--accent-1));
+          }
+        }
+
+        &.current-menu-item,
+        &.current_page_ancestor,
+        &.current_page_parent {
+          > a {
+            color: rgb(var(--accent-1));
+          }
+        }
+      }
+
+      .submenu {
+        /* Styles for 2nd level dropdown menu */
+      }
+    }
+  }
+}
+/*! purgecss end ignore */

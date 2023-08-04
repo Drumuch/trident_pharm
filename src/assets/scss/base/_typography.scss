@@ -1,0 +1,58 @@
+@each $size, $headers in $headings-styles {
+
+	@include media-breakpoint-up($size) {
+
+		@each $header, $header-defs in $headers {
+			#{$header}, .#{$header} {
+
+				@if map-has-key($header-defs, font-size) {
+					font-size: map-get($header-defs, font-size);
+				}
+
+				@if map-has-key($header-defs, font-weight) {
+					font-weight: map-get($header-defs, font-weight);
+				}
+
+				@if map-has-key($header-defs, font-family) {
+					font-family: map-get($header-defs, font-family);
+				}
+
+				@if map-has-key($header-defs, line-height) {
+					line-height: map-get($header-defs, line-height);
+				}
+
+				@if map-has-key($header-defs, letter-spacing) {
+					letter-spacing: map-get($header-defs, letter-spacing);
+				}
+
+				@if map-has-key($header-defs, margin-bottom) {
+					margin-bottom: map-get($header-defs, margin-bottom);
+				}
+			}
+		}
+	}
+}
+.h1-xl {
+  font-size: 3.6rem;
+  @include media-breakpoint-up(md) {
+    font-size: 5rem;
+  }
+  @include media-breakpoint-up(xl) {
+    font-size: 6.4rem;
+  }
+}
+
+.fp-copy-small {
+  font-size: 1.3rem;
+  @include media-breakpoint-up(lg) {
+    font-size: 1.5rem;
+  }
+}
+
+.fp-button-2 {
+  font-size: 1.3rem;
+  font-weight: $font-weight-medium;
+  @include media-breakpoint-up(lg) {
+    font-size: 1.6rem;
+  }
+}

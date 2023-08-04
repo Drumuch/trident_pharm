@@ -1,0 +1,23 @@
+{% if fields.list | length > 0 %}
+	<section {{ anchor }} {{ attribute }}>
+		<ol class="fp-bullet-block__list {{ fields.style}} d-flex flex-column gap-20 mb-0 p-0 list-none">
+			{% for item in fields.list %}
+				<li class="position-relative pt-65 pt-md-0 ps-md-80 ps-xl-108 pt-xl-40 ps-xl-108">
+					<span class="decor position-absolute">
+						{% if fields.style == 'ordered' %}
+							<span class="position-relative">{{ loop.index > 9 ? loop.index : '0'~loop.index}}</span>
+						{% else %}
+							<svg width="60" height="60"><use xlink:href="{{ svg_sprite }}#icon-bullet-list"></use></svg>
+						{% endif %}
+					</span>
+					{% if item.title %}
+						<h4 class="h3 text-accent-2 mb-14">{{ item.title }}</h4>
+					{% endif %}
+					{% if item.description %}
+						<p class="text-2 mb-20">{{ item.description }}</p>
+					{% endif %}
+				</li>
+			{% endfor %}
+		</ol>
+	</section>
+{% endif %}

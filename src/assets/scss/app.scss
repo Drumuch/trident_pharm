@@ -1,0 +1,27 @@
+// bootstrap
+@import "./abstracts/bootstrap";
+
+// fonts
+@import "./abstracts/fonts";
+
+// base
+@import "./base/typography";
+@import "./base/blocks";
+
+// layout
+@import "./layout/global";
+@import "./layout/header";
+@import "./layout/footer";
+
+// components
+@import "./components/buttons";
+@import "./components/forms";
+@import "./components/pagination";
+@import "./components/related-products";
+
+// lib
+@import "./lib/splide";
+
+// templates
+@import "./templates/single";
+

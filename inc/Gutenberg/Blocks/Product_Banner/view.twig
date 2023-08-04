@@ -1,0 +1,45 @@
+{% if banners | length > 0 %}
+	<section {{ anchor }} {{ attribute }}>
+		<div class="d-flex justify-content-center justify-content-lg-end">
+			<div class="fp-banners-wrap border-radius-25 border-radius-lg-45 bg-4 py-20 px-40 py-md-24 w-100 w-lg-auto d-inline-flex flex-column flex-lg-row gap-20 gap-md-40 gap-xl-70">
+				{% for banner in banners %}
+					<div class="fp-banner-item d-flex flex-column align-items-center">
+						{% if banner.fill_type == 'manual' %}
+							{% if banner.title %}
+								<p class="mb-8">{{ banner.title }}</p>
+							{% endif %}
+						{% else %}
+							{% if banner.product %}
+								<p class="mb-8">{{ banner.product.post_title }}</p>
+							{% endif %}
+						{% endif %}
+						{% if banner.subtitle %}
+							<p class="fp-copy-small mb-8">{{ banner.subtitle }}</p>
+						{% endif %}
+						{% if banner.fill_type == 'manual' %}
+							{% if banner.image %}
+								<div class="fp-banner-item__image-wrap d-flex justify-content-center align-items-center">
+									<img src="{{ Image(banner.image).src }}" class="w-100" alt="{{ banner.title }}" width="{{ Image(banner.image).width }}" height="{{ Image(banner.image).height }}">
+								</div>
+							{% endif %}
+						{% else %}
+							{% if banner.product and Image(banner.product).src %}
+								<div class="fp-banner-item__image-wrap d-flex justify-content-center align-items-center">
+									<img src="{{ Image(banner.product).src }}" class="w-100" alt="{{ banner.product.post_title }}" width="{{ Image(banner.product).width }}" height="{{ Image(banner.product).height }}">
+								</div>
+							{% endif %}
+						{% endif %}
+						{% if banner.link.url and banner.link.title %}
+							<a href="{{ banner.link.url }}" class="fp-button fp-button--small d-flex align-items-center gap-7" target="{{ banner.link.target ?: '_self' }}">
+								<span class="icon border-radius-circle border-1 border-color-body d-flex justify-content-center align-items-center flex-shrink-0">
+								   <svg width="20" height="20"><use xlink:href="{{ svg_sprite }}#icon-link-arrow"></use></svg>
+      							</span>
+								<span>{{ banner.link.title }}</span>
+							</a>
+						{% endif %}
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	</section>
+{% endif %}

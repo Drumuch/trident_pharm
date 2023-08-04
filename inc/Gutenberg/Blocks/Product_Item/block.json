@@ -1,0 +1,59 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "fp-product-item",
+  "title": "Product Item",
+  "description": "Product Item Block",
+  "style": "file:./dist/style.css",
+  "editorStyle": "file:./dist/style.css",
+  "category": "custom-blocks",
+  "icon": "block-default",
+  "keywords": [
+    "test",
+    "quote"
+  ],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "view.php",
+    "postTypes": [
+      "post",
+      "page",
+      "product"
+    ]
+  },
+  "supports": {
+    "align": false,
+    "anchor": true,
+    "alignContent": false,
+    "color": {
+      "text": false,
+      "background": false,
+      "link": false
+    },
+    "alignText": false,
+    "spacing": {
+      "customSpacingSize": false,
+      "margin": [
+        "bottom"
+      ]
+    },
+    "typography": false,
+    "fullHeight": false,
+    "mode": false
+  },
+  "attributes": {
+    "backgroundColor": {
+      "type": "string",
+      "default": "purple"
+    }
+  },
+  "example": {
+    "attributes": {
+      "data": {
+        "title": "Position your brand directly in the learning process of millions of students",
+        "content": "On fp, we seamlessly integrate your brand in the learning process of your target audience. Whether in between flashcards, notes, lecture slides or as a learning success screen - we make sure to connect your brand only with relevant learners.",
+        "image": "166"
+      }
+    }
+  }
+}

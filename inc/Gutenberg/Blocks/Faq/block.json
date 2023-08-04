@@ -1,0 +1,62 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "fp-faq",
+  "title": "FAQ",
+  "description": "FAQ Block",
+  "style": "file:./dist/style.css",
+  "editorStyle": "file:./dist/style.css",
+  "category": "custom-blocks",
+  "icon": "block-default",
+  "keywords": [
+    "test",
+    "quote"
+  ],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "view.php",
+    "postTypes": [
+      "post",
+      "page",
+      "product"
+    ]
+  },
+  "supports": {
+    "align": false,
+    "anchor": true,
+    "alignContent": false,
+    "color": {
+      "text": false,
+      "background": false,
+      "link": false
+    },
+    "alignText": false,
+    "spacing": {
+      "customSpacingSize": false,
+      "margin": [
+        "bottom"
+      ]
+    },
+    "typography": false,
+    "fullHeight": false,
+    "mode": false
+  },
+  "attributes": {
+    "backgroundColor": {
+      "type": "string",
+      "default": "purple"
+    }
+  },
+  "example": {
+    "attributes": {
+      "data": {
+        "faq": [
+          {
+            "title": "test",
+            "description": "test"
+          }
+        ]
+      }
+    }
+  }
+}

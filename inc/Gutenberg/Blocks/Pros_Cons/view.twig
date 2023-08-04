@@ -1,0 +1,64 @@
+{% if fields.list_1 | length > 0 or fields.list_2 | length > 0 %}
+	<section {{ anchor }} {{ attribute }}>
+		<div class="row gap-60 gap-md-0">
+			<div class="col-12 col-md-6">
+				{% if fields.title_list_1 %}
+					<div class="fp-pros-cons-block__wrap ps-10 ps-md-30 ps-xl-70 pb-24 bg-body">
+						<div class="fp-pros-cons-block__title d-flex justify-content-between">
+							<h4 class="h1-xl text-accent-1 mb-0">{{ fields.title_list_1 }}</h4>
+							<div class="decor plus bg-2"><span></span></div>
+						</div>
+					</div>
+				{% endif %}
+				<div class="fp-pros-cons-block__card position-relative p-10 pt-38 pb-30 p-xl-30 bg-2">
+					<div class="fp-pros-cons-block__list pb-40 pb-md-0 d-flex flex-md-column gap-10 gap-md-20">
+						{% for item in fields.list_1 %}
+							<div class="fp-pros-cons-block__list-item bg-body border-radius-25 p-15 pt-20 p-md-25 pt-md-20 ps-xl-40">
+								<div class="d-flex justify-content-between align-items-center mb-10 mb-md-20">
+									{% if item.title %}
+										<h5 class="mb-0">{{ item.title }}</h5>
+									{% endif %}
+									{% if item.icon %}
+										<div class="fp-pros-cons-block__icon mb-0 h5 flex-shrink-0 text-accent-1">
+											{{ item.icon }}
+										</div>
+									{% endif %}
+								</div>
+								<p class="fp-copy-small mb-0">{{ item.description }}</p>
+							</div>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-md-6">
+				{% if fields.title_list_2 %}
+					<div class="fp-pros-cons-block__wrap ps-10 ps-md-30 ps-xl-70 pb-24 bg-body">
+						<div class="fp-pros-cons-block__title d-flex justify-content-between">
+							<h4 class="h1-xl text-accent-1 mb-0">{{ fields.title_list_2 }}</h4>
+							<div class="decor minus bg-1"><span></span></div>
+						</div>
+					</div>
+				{% endif %}
+				<div class="fp-pros-cons-block__card position-relative p-10 pt-38 pb-30 p-xl-30 bg-1">
+					<div class="fp-pros-cons-block__list pb-40 pb-md-0 d-flex flex-md-column gap-10 gap-md-20">
+						{% for item in fields.list_2 %}
+							<div class="fp-pros-cons-block__list-item bg-body border-radius-25 p-15 pt-20 p-md-25 pt-md-20 ps-xl-40">
+								<div class="d-flex justify-content-between align-items-center mb-10 mb-md-20">
+									{% if item.title %}
+										<h5 class="mb-0">{{ item.title }}</h5>
+									{% endif %}
+									{% if item.icon %}
+										<div class="fp-pros-cons-block__icon mb-0 h5 flex-shrink-0 text-accent-2">
+											{{ item.icon }}
+										</div>
+									{% endif %}
+								</div>
+								<p class="fp-copy-small mb-0">{{ item.description }}</p>
+							</div>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+{% endif %}

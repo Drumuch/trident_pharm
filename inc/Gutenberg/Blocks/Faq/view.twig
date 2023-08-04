@@ -1,0 +1,33 @@
+{% if fields.faq | length > 0 %}
+	<section {{ anchor }} {{ attribute }}>
+		<div class="d-flex flex-column" itemscope itemtype="https://schema.org/FAQPage" data-faq-block>
+			{% for item in fields.faq %}
+				{% if item.title and item.description %}
+					<div class="fp-faq-item bg-3 position-relative overflow-hidden" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" data-faq-item>
+						<div class="corner corner-top-left bg-body position-absolute top-0 start-0"></div>
+						<div class="corner corner-top-right bg-body position-absolute top-0 end-0"></div>
+
+						<div class="corner corner-bottom-right bg-body position-absolute bottom-0 end-0"></div>
+						<div class="corner corner-bottom-left bg-body position-absolute bottom-0 start-0"></div>
+
+						<div class="fp-faq-item__header position-relative z-2" data-faq-toggle>
+							<h3 itemprop="name" class="h5 text-1 mb-0">
+								<button type="button" class="bg-transparent d-inline-flex justify-content-between align-items-center gap-24 w-100 border-0 p-7 ps-20 p-md-14 ps-md-24 ps-xl-54">
+									{{ item.title }}
+									<div class="fp-faq-item__icon d-flex justify-content-center align-items-center flex-shrink-0">
+										<svg width="16" height="9"><use xlink:href="{{ svg_sprite }}#icon-accordion-arrow"></use></svg>
+									</div>
+								</button>
+							</h3>
+						</div>
+						<div class="fp-faq-item__collapse overflow-hidden ps-20 pe-16 ps-md-24 ps-xl-54" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" data-faq-content>
+							<div class="fp-faq-item__body position-relative z-2 pb-20 pb-xl-30">
+								<p class="text-2 mb-0" itemprop="text">{{ item.description }}</p>
+							</div>
+						</div>
+					</div>
+				{% endif %}
+			{% endfor %}
+		</div>
+	</section>
+{% endif %}

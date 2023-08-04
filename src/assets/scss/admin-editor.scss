@@ -1,0 +1,128 @@
+@import "./abstracts/abstracts";
+
+// grid & container
+@import "containers";
+@import "grid";
+@import "./base/container";
+
+// fonts
+@import "./abstracts/fonts";
+@import "./abstracts/utilits";
+
+// base
+@import "./base/blocks";
+
+// components
+@import "./components/buttons";
+
+/*! purgecss start ignore */
+
+:root {
+	font-size: 62.5%;
+	--wp-admin-theme-color: rgb(var(--accent-2));
+	--wp-admin-theme-color-darker-10: rgb(var(--accent-1));
+  --wp--preset--color--accent-1: rgb(var(--accent-1));
+  --wp--preset--color--accent-2: rgb(var(--accent-2));
+}
+
+* {
+	box-sizing: border-box;
+}
+
+input[type=checkbox], input[type=radio] {
+  font-size: 100% !important;
+}
+
+// Admin editor
+.editor-post-title {
+	text-align: center !important;
+}
+
+.edit-post-editor__list-view-panel {
+  min-width: 268px !important;
+}
+
+.interface-complementary-area.edit-post-sidebar {
+
+	@include media-breakpoint-up(lg) {
+		width: 400px;
+	}
+}
+
+.editor-styles-wrapper {
+	font-family: $font-family-sans-serif !important;
+  background-color: var(--body) !important;
+  color: rgb(var(--text)) !important;
+  @import "./layout/global";
+	@import "./base/typography";
+  h1, h2, h3, h4, h5, h6,
+  .h1, .h2, .h3, .h4, .h5, .h6 {
+    margin-top: 0 !important;
+  }
+  a:not(.fp-button) {
+    color: rgb(var(--accent-2));
+    &:hover {
+      color: rgb(var(--accent-1));
+    }
+  }
+  a:where(.fp-circle-button, .fp-product-card__link) {
+    text-decoration: none !important;
+  }
+}
+
+.editor-styles-wrapper .is-layout-flow > {
+  * + * {
+    margin-block-start: 40px !important;
+    margin-block-end: 40px !important;
+  }
+}
+button[aria-label="Heading 1"] {
+  display: none !important;
+}
+
+.block-editor-default-block-appender .block-editor-inserter {
+	top: 20px !important;
+	right: 20px !important;
+
+	button {
+		background-color: rgb(var(--accent-2)) !important;
+		color: var(--body) !important;
+	}
+}
+
+.components-popover__content {
+	--wp-admin-theme-color: rgb(var(--accent-2));
+}
+
+.components-range-control__tooltip {
+	z-index: 2;
+}
+
+.block-editor-block-list__layout {
+	padding: 0 20px;
+}
+
+.acf_content {
+	margin: 15px;
+}
+
+// Blocks
+
+.fp-button {
+	text-decoration: none !important;
+}
+
+.wp-block-image {
+
+	& > div,
+	& > img {
+		width: 100% !important;
+    max-width: none !important;
+	}
+}
+
+b, strong {
+  font-weight: $font-weight-medium;
+}
+
+/*! purgecss end ignore */

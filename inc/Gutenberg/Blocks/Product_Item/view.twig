@@ -1,0 +1,26 @@
+<section {{ anchor }} {{ attribute }}>
+	<div class="bg-2 p-10 p-md-20 p-lg-30 border-radius-15 border-radius-md-25 border-radius-lg-45 border-radius-xl-60">
+		<div class="row align-items-md-center">
+			<div class="col-12 col-md-6">
+				{% if image %}
+					<img src="{{ Image(image).src }}" class="w-100" alt="{{ image.alt }}" width="{{ Image(image).width }}" height="{{ Image(image).height }}">
+				{% endif %}
+			</div>
+			<div class="col-12 col-md-6">
+				<div class="bg-body border-radius-15 border-radius-md-25 border-radius-lg-45 border-radius-xl-60 px-20 py-30 p-md-40 py-lg-60">
+					{% if title %}
+						<h5 class="mb-20 mb-md-40">{{ title | highlight }}</h5>
+					{% endif %}
+					{% if description %}
+						<div class="fp-decor-excerpt mb-40">{{ description }}</div>
+					{% endif %}
+					{% if link.title and link.url %}
+						<div class="d-flex justify-content-center justify-content-lg-start">
+							<a class="fp-circle-button" href="{{ link.url }}" target="{{ link.target ?: '_self' }}">{{ link.title }}</a>
+						</div>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
