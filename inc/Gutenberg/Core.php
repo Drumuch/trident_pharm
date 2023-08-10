@@ -12,9 +12,7 @@ class Core {
 		'core/list',
 		'core/list-item',
 		'core/quote',
-//		'core/shortcode',
-//		'core/embed',
-//		'core/table'
+		'core/table',
 	);
 
 	// TODO: Refactor to use the main block array from Register.php

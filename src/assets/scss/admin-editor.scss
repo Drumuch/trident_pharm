@@ -113,12 +113,28 @@ button[aria-label="Heading 1"] {
 }
 
 .wp-block-image {
+  float: none !important;
 
-	& > div,
-	& > img {
-		width: 100% !important;
-    max-width: none !important;
-	}
+  &.aligncenter {
+    text-align: center;
+  }
+
+  &.alignright {
+    margin-left: auto !important;
+  }
+
+  &.alignleft {
+    margin-right: auto !important;
+  }
+
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  .components-resizable-box__container {
+    max-width: 100% !important;
+  }
 }
 
 b, strong {

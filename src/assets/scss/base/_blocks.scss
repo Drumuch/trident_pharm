@@ -126,8 +126,22 @@
 
   @extend %block-indent;
 
-  img {
-    width: 100%;
+  &.aligncenter {
+    text-align: center;
+  }
+
+  &.alignright {
+    text-align: right;
+  }
+
+  &.alignleft {
+    text-align: left;
+  }
+
+  &.alignfull {
+    img {
+      width: 100%;
+    }
   }
 }
 
@@ -153,6 +167,7 @@
   }
 }
 
+// Quote
 .wp-block-quote {
   @extend %block-indent;
   position: relative;
@@ -197,6 +212,47 @@
       font-weight: inherit;
     }
   }
+}
+
+// Table
+.wp-block-table {
+
+  @extend %block-indent;
+
+  @include media-breakpoint-down(md) {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+
+    th {
+      min-width: 150px;
+    }
+  }
+
+  table {
+    width: 100%;
+
+    @include media-breakpoint-up(md) {
+
+      &.has-fixed-layout {
+        table-layout: fixed;
+      }
+    }
+  }
+
+  thead {
+    border-bottom: none;
+
+    tr:first-child {
+      text-transform: uppercase;
+    }
+  }
+
+  th,
+  td {
+    border: 1px solid $ui-border-color;
+    padding: 10px;
+  }
+
 }
 
 mark, .mark {
