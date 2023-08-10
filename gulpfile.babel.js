@@ -352,7 +352,7 @@ const watch = () => {
 const archive = () => {
   let time = dateFormat(new Date(), "yyyy-mm-dd_HH-MM");
   let pkg = JSON.parse(fs.readFileSync('./package.json'));
-  let title = pkg.name + '_' + time + '.zip';
+  let title = pkg.name + '.zip';
 
   return gulp.src(PATHS.package)
     .pipe(gulpZip(title))

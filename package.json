@@ -11,7 +11,7 @@
     "purge:css": "gulp purge:css",
     "lint:css": "npx stylelint \"./src/assets/scss/**/*.scss\"",
     "lintcss:fix": "npm run lint:css -- --fix",
-    "zip": "composer install && gulp zip --production"
+    "zip": "composer install && npm i && gulp zip --production"
   },
   "dependencies": {
     "@splidejs/splide": "^4.1.4",
