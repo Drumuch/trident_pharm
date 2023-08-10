@@ -4,8 +4,6 @@
   "name": "fp-contact-form",
   "title": "Contact Form",
   "description": "Contact Form Block",
-  "style": "file:./dist/style.css",
-  "editorStyle": "file:./dist/style.css",
   "category": "custom-blocks",
   "icon": "block-default",
   "keywords": [

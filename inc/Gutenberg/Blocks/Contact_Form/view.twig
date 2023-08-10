@@ -5,43 +5,74 @@
 				<div class="fp-section-heading-wrap position-relative bg-body px-24 pb-24 px-lg-50 pb-lg-40 px-xl-70 pb-xl-45">
 					<span class="corner left"></span>
 					<span class="corner right"></span>
-					<h2 class="position-relative z-1 text-nowrap text-center text-1 mb-0">{{ title }}</h2>
+					<h2 class="position-relative z-1 text-nowrap text-center text-1 mb-0">{{ fields.title ?: 'Contact Us' }}</h2>
 				</div>
 			</div>
 		</div>
 
-		{% if contact_form %}
-			<div class="row">
-				<div class="col-12 col-xl-10 offset-xl-1">
-					<div data-form-body>
-						{% filter shortcodes %}
-							[contact-form-7 id="{{ contact_form }}" title="Contact form"]
-						{% endfilter %}
-					</div>
-					{% if thank_you_title or thank_you_description %}
-						<div class="d-none text-center fp-contact-form-block__thank-you" data-thank-you>
-							{% if thank_you_title %}
-								<h4 class="h2 mb-40">{{ thank_you_title }}</h4>
-							{% endif %}
-
-							{% if thank_you_description %}
-								<p class="h5 mb-40">{{ thank_you_description }}</p>
-							{% endif %}
-
-							{% if thank_you_link.title and thank_you_link.url %}
-								<div class="link">
-									<a href="{{ link.url }}" class="fp-button w-100 d-inline-flex align-items-center justify-content-center gap-20">
-										{{ thank_you_link.title }}
-										<span class="icon border-radius-circle border-1 border-color-body d-flex justify-content-center align-items-center flex-shrink-0">
-											<svg width="28" height="28"><use xlink:href="{{ svg_sprite }}#icon-link-arrow"></use></svg>
-										</span>
-									</a>
+		<div class="row">
+			<div class="col-12 col-xl-10 offset-xl-1">
+				<div data-form-body>
+					<form action="/" method="POST" data-form>
+						<div class="row">
+							<div class="col col-12 col-lg-6">
+								<div class="fp-form-group">
+									<label for="name">{{ fields.form.label_name ?: 'Your name*' }}</label>
+									<input type="text" id="name" placeholder="{{ fields.form.placeholder_name ?: 'Enter your name' }}" required>
 								</div>
-							{% endif %}
+								<div class="fp-form-group">
+									<label for="email">{{ fields.form.label_email ?: 'Your email*' }}</label>
+									<div class="email">
+										<input type="email" id="email" placeholder="{{ fields.form.placeholder_email ?: 'Enter your email*' }}" required>
+									</div>
+								</div>
+							</div>
+							<div class="col col-12 col-lg-6">
+								<div class="fp-form-group">
+									<label for="message">{{ fields.form.label_message ?: 'Your message' }}</label>
+									<textarea id="message" placeholder="{{ fields.form.placeholder_message ?: 'Enter your message...' }}"></textarea>
+								</div>
+								{% if fields.form.label_acceptance %}
+									<div class="fp-form-group d-flex justify-content-center">
+										<div class="fp-acceptance">
+											<input id="acceptance" type="checkbox" required/>
+											<label for="acceptance">{{ fields.form.label_acceptance ?: 'Your message' }}</label>
+										</div>
+									</div>
+								{% endif %}
+								<button type="submit" class="fp-button w-100 wpcf7-form-control wpcf7-submit text-center d-flex justify-content-center gap-20 align-items-center gap-8" aria-label="Submit">
+									{{ fields.form.submit ?: 'Submit' }}
+									<span class="icon border-radius-circle border-1 border-color-body d-flex justify-content-center align-items-center flex-shrink-0">
+										<svg width="20" height="20"><use xlink:href="{{ svg_sprite }}#icon-link-arrow"></use></svg>
+      								</span>
+								</button>
+							</div>
 						</div>
-					{% endif %}
+					</form>
 				</div>
+				{% if fields.thank_you_title or fields.thank_you_description %}
+					<div class="d-none text-center fp-contact-form-block__thank-you" data-thank-you>
+						{% if fields.thank_you_title %}
+							<h4 class="h2 mb-40">{{ fields.thank_you_title }}</h4>
+						{% endif %}
+
+						{% if fields.thank_you_description %}
+							<p class="h5 mb-40">{{ fields.thank_you_description }}</p>
+						{% endif %}
+
+						{% if fields.thank_you_link.title and fields.thank_you_link.url %}
+							<div class="link">
+								<a href="{{ fields.thank_you_link.url }}" class="fp-button w-100 d-inline-flex align-items-center justify-content-center gap-20">
+									{{ fields.thank_you_link.title }}
+									<span class="icon border-radius-circle border-1 border-color-body d-flex justify-content-center align-items-center flex-shrink-0">
+										<svg width="28" height="28"><use xlink:href="{{ svg_sprite }}#icon-link-arrow"></use></svg>
+									</span>
+								</a>
+							</div>
+						{% endif %}
+					</div>
+				{% endif %}
 			</div>
-		{% endif %}
+		</div>
 	</div>
 </section>

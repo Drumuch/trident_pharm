@@ -1,22 +1,29 @@
 const initializeBlock = function (block) {
-  let form = block.querySelector('form.wpcf7-form');
+  let form = block.querySelector('[data-form]');
   let formBody = block.querySelector('[data-form-body]');
   let thankYou = block.querySelector('[data-thank-you]');
 
   const apiURL = 'https://pongping.net/contact/telegram';
 
-  form.addEventListener('wpcf7mailsent', async(e) => {
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const formData = {
+      domain: window.location.hostname,
+      name: form.elements['name'].value,
+      email: form.elements['email'].value,
+      message: form.elements['message'].value,
+    };
 
-    const formData = createFormData(e.detail.inputs)
-
-    if (thankYou) {
-      formBody.classList.add('d-none');
-      thankYou.classList.remove('d-none');
-    }
+    // console.log(formData);
 
     try {
       const result = await sendFormData(formData);
       console.log(result);
+      if (thankYou) {
+        formBody.classList.add('d-none');
+        thankYou.classList.remove('d-none');
+      }
+      form.reset();
     } catch (error) {
       console.log('Error:', error);
     }
@@ -32,18 +39,6 @@ const initializeBlock = function (block) {
     });
 
     return response.text();
-  }
-
-  function createFormData(inputs) {
-    const formData = {
-      domain: window.location.hostname
-    };
-
-    inputs.forEach((item) => {
-      formData[item.name] = item.value;
-    });
-
-    return formData;
   }
 
 }

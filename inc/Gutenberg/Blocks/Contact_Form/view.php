@@ -38,11 +38,7 @@ $context = \Timber\Timber::get_context();
 $data = [
 	'anchor'                => $anchor,
 	'attribute'             => $wrapper_attributes,
-	'title'                 => get_field( 'title' ),
-	'contact_form'          => get_field( 'contact_form' ),
-	'thank_you_title'       => get_field( 'thank_you_title' ),
-	'thank_you_description' => get_field( 'thank_you_description' ),
-	'thank_you_link'        => get_field( 'thank_you_link' ),
+	'fields'                 => get_fields(),
 ];
 
 $context = array_merge( $context, $data );
