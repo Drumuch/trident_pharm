@@ -29,11 +29,11 @@ class Register {
             $block_path = str_replace( "\Block", '', $block_path );
 
             // Do not move this line it must be before we add the __DIR__
-            $block_script_uri = get_stylesheet_directory_uri() . "/inc/Gutenberg/Blocks/{$block_path}/dist";
+            $block_assets_uri = get_stylesheet_directory_uri() . "/inc/Gutenberg/Blocks/{$block_path}/dist";
 
             $block_path = __DIR__ . "/Blocks/{$block_path}/";
 
-            $block = new $block( $block_path, $block_script_uri );
+            $block = new $block( $block_path, $block_assets_uri );
             $block->init();
             $block->register_block();
         }

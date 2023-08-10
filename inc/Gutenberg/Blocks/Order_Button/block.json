@@ -4,8 +4,6 @@
   "name": "fp-order-button",
   "title": "Order Button",
   "description": "Order Button",
-  "style": "file:./dist/style.css",
-  "editorStyle": "file:./dist/style.css",
   "category": "custom-blocks",
   "icon": "admin-links",
   "keywords": [

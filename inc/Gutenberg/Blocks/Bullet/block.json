@@ -4,8 +4,6 @@
   "name": "fp-bullet",
   "title": "Bullet",
   "description": "Bullet Block",
-  "style": "file:./dist/style.css",
-  "editorStyle": "file:./dist/style.css",
   "category": "custom-blocks",
   "icon": "block-default",
   "keywords": [
@@ -51,8 +49,7 @@
     "attributes": {
       "data": {
         "title": "Position your brand directly in the learning process of millions of students",
-        "content": "On fp, we seamlessly integrate your brand in the learning process of your target audience. Whether in between flashcards, notes, lecture slides or as a learning success screen - we make sure to connect your brand only with relevant learners.",
-        "image": "166"
+        "content": "On fp, we seamlessly integrate your brand in the learning process of your target audience. Whether in between flashcards, notes, lecture slides or as a learning success screen - we make sure to connect your brand only with relevant learners."
       }
     }
   }

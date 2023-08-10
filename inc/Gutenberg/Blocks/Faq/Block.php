@@ -19,6 +19,7 @@ class Block extends Gutenberg_Block {
 			'type'         => 'repeater',
 			'layout'       => 'block',
 			'button_label' => __( 'Add Card', 'fp' ),
+			'min'          => 1,
 			'sub_fields'   => [
 				[
 					'label'         => __( 'Title', 'fp' ),

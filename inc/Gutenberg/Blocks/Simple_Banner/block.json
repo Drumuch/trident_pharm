@@ -4,8 +4,6 @@
   "name": "fp-simple-banner",
   "title": "Simple Banner",
   "description": "Simple Banner Block",
-  "style": "file:./dist/style.css",
-  "editorStyle": "file:./dist/style.css",
   "category": "custom-blocks",
   "icon": "block-default",
   "keywords": [

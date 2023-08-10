@@ -9,14 +9,14 @@ use FP\Plugins\Acf\Group;
 abstract class Gutenberg_Block extends Group {
 
 	// dashes only
-    const NAME = '';
+	const NAME = '';
 
 	private $path;
-	private $script_uri;
+	private $assets_uri;
 
-	public function __construct( $path, $script_uri  ) {
+	public function __construct( $path, $assets_uri ) {
 		$this->path       = $path;
-		$this->script_uri = $script_uri;
+		$this->assets_uri = $assets_uri;
 	}
 
 	/**
@@ -56,16 +56,22 @@ abstract class Gutenberg_Block extends Group {
 
 	public function register_block() {
 		register_block_type( $this->path );
-		$this->register_script();
+		$this->enqueue_styles( $this->assets_uri );
+		$this->register_script( $this->assets_uri );
 	}
 
-	public function register_script() {
-		$file = $this->script_uri . '/app.js';
-		wp_register_script( 'block-' . static::NAME, $file, [], THEME_VERSION, true );
+	public function register_script( $path ) {
+		$file_js = $path . '/app.js';
+		wp_register_script( 'block-' . static::NAME, $file_js, [], THEME_VERSION, true );
 	}
 
 	public static function enqueue_script() {
 		wp_enqueue_script( 'block-' . static::NAME );
+	}
+
+	public static function enqueue_styles( $path ) {
+		$file_css = $path . '/style.css';
+		wp_enqueue_style( 'block-' . static::NAME, $file_css, [], THEME_VERSION, 'all' );
 	}
 
 }

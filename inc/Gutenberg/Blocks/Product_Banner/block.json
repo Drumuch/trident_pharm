@@ -4,8 +4,6 @@
   "name": "fp-product-banner",
   "title": "Product Banner",
   "description": "Product Banner Block",
-  "style": "file:./dist/style.css",
-  "editorStyle": "file:./dist/style.css",
   "category": "custom-blocks",
   "icon": "block-default",
   "keywords": [

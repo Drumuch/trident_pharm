@@ -4,8 +4,6 @@
   "name": "fp-faq",
   "title": "FAQ",
   "description": "FAQ Block",
-  "style": "file:./dist/style.css",
-  "editorStyle": "file:./dist/style.css",
   "category": "custom-blocks",
   "icon": "block-default",
   "keywords": [
