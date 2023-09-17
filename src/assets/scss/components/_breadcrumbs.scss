@@ -1,0 +1,13 @@
+.fp-breadcrumbs {
+  list-style: none;
+  a {
+    color: rgb(var(--text), 0.8);
+    &:hover {
+      color: rgb(var(--accent-1));
+    }
+  }
+  .active {
+    font-weight: $font-weight-semibold;
+    color: rgb(var(--text));
+  }
+}

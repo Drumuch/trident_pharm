@@ -185,8 +185,7 @@
       }
 
       &.current-menu-item,
-      &.current_page_ancestor,
-      &.current_page_parent {
+      {
         > a,
         .submenu-toggle {
           color: rgb(var(--accent-2));
@@ -259,8 +258,7 @@
       }
 
       &.current-menu-item,
-      &.current_page_ancestor,
-      &.current_page_parent {
+      {
         > a {
           /* Style of Current page and Ancestor page */
           color: rgb(var(--accent-2));

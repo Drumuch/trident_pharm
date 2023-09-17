@@ -12,11 +12,15 @@
  */
 defined( 'ABSPATH' ) || exit;
 
-$context = \Timber\Timber::get_context();
-$context['posts'] = \Timber\Timber::get_posts();
-$context['title'] = get_the_title( get_option('page_for_posts', true));
-$context['categories'] = \Timber\Timber::get_terms('category');
-$context['archive_link'] = get_permalink(get_option('page_for_posts'));
+$context = Timber\Timber::get_context();
 
-$templates = array( 'index.twig' );
-\Timber\Timber::render( $templates, $context );
+$data = [
+	'posts'        => Timber\Timber::get_posts(),
+	'title'        => get_the_title( get_option( 'page_for_posts', true ) ),
+	'categories'   => Timber\Timber::get_terms( 'category' ),
+	'archive_link' => get_permalink( get_option( 'page_for_posts' ) )
+];
+
+$context = array_merge( $context, $data );
+
+Timber\Timber::render( 'index.twig', $context );

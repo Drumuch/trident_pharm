@@ -8,7 +8,11 @@
 			<div class="fp-products-list row row-gap-20 row-gap-md-30 row-gap-lg-45">
 				{% for post in posts %}
 					<div class="col-12 col-md-6 col-lg-4 col-xl-3">
-						{% include 'partial/product-card.twig' %}
+						{% if post.post_type == 'blog' %}
+							{% include 'partial/blog-card.twig' %}
+						{% else %}
+							{% include 'partial/product-card.twig' %}
+						{% endif %}
 					</div>
 				{% else %}
 					<div class="col-12">

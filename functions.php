@@ -17,7 +17,12 @@ define( 'THEME_URI', trailingslashit( esc_url( get_stylesheet_directory_uri() ) 
 new FP\Theme\Support();
 new FP\Theme\Enqueue();
 new FP\Theme\Comments();
-//new FP\Post_Type\Manager();
+
+/* Post Types */
+new FP\Post_Type\Manager();
+
+/* Taxonomies */
+new FP\Taxonomy\Manager();
 
 /* Gutenberg */
 new FP\Gutenberg\Core();

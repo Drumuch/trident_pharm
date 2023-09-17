@@ -1,7 +1,5 @@
 export default class Header {
   headerRef;
-  headerNavRef;
-  headerHeight;
   burgerMenuRef;
   offcanvasRef;
   prevScroll;

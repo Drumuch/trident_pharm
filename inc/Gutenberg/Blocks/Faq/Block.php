@@ -30,9 +30,10 @@ class Block extends Gutenberg_Block {
 				[
 					'label'         => __( 'Description', 'fp' ),
 					'name'          => 'description',
-					'type'          => 'textarea',
-					'row'           => '4',
-					'default_value' => 'Läkemedelspriserna är föremål för allmänna ?'
+					'type'          => 'wysiwyg',
+					'default_value' => 'Läkemedelspriserna är föremål för allmänna ?',
+					'toolbar'       => 'full',
+					'media_upload'  => 1,
 				],
 			],
 		] );

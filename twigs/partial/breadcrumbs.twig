@@ -1,0 +1,27 @@
+{% if items | length > 0 %}
+	<ol class="fp-breadcrumbs p-0 m-0 d-flex flex-wrap align-items-center column-gap-20" itemscope itemtype="https://schema.org/BreadcrumbList">
+		<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+			<a itemprop="item" href="/">
+				<span itemprop="name">Home</span>
+			</a>
+			<meta itemprop="position" content="1" />
+		</li>
+		<svg width="10" height="12"><use xlink:href="{{ svg_sprite }}#icon-link-breadcrumbs"></use></svg>
+		{% for item in items %}
+			<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+				{% if item.link %}
+					<a itemprop="item" href="{{ item.link }}">
+						<span itemprop="name">{{ item.name }}</span>
+					</a>
+				{% else %}
+					<span class="active" itemprop="name">{{ item.name }}</span>
+				{% endif %}
+				<meta itemprop="position" content="{{ loop.index + 1 }}" />
+			</li>
+			{% if not loop.last %}
+				<svg width="10" height="12"><use xlink:href="{{ svg_sprite }}#icon-link-breadcrumbs"></use></svg>
+			{% endif %}
+		{% endfor %}
+	</ol>
+
+{% endif %}

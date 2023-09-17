@@ -1,0 +1,61 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<main>
+		<div class="container">
+			<section>
+				<div class="mb-30 mb-lg-80">
+					{% include 'partial/breadcrumbs.twig' with {'items': breadcrumbs} %}
+				</div>
+				<h1 class="mb-20 mb-md-40">{{ title }}</h1>
+				<div class="row text-center text-md-end">
+					<div class="col-12">
+						<div class="fp-blog-filter d-inline-flex align-items-center justify-content-between gap-5 ps-5 dropdown border-radius-34 bg-1 mb-20">
+							<div class="flex-grow-1 text-start fp-copy-small text-2 px-10 py-5 bg-body border-radius-34">
+								{% if not request.get.order %}
+									Order by: date
+								{% elseif request.get.order == 'ASC' %}
+									Date: first old ones
+								{% elseif request.get.order == 'DESC' %}
+									Date: first new ones
+								{% endif %}
+							</div>
+							<button type="button" class="p-10 m-0 border-0 bg-transparent" data-bs-toggle="dropdown" aria-expanded="false">
+								<span class="icon d-flex justify-center align-items-center border-radius-circle bg-body">
+									<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+									<path d="M10.0004 12.4L13.1181 8.80002H6.8827L10.0004 12.4Z" fill="#4F378B"/>
+								</svg>
+								</span>
+							</button>
+							<div class="dropdown-menu fp-copy-small">
+								<div class="text-2">Order by: date</div>
+								{% if request.get.order != 'ASC' %}
+									<div><a class="d-flex" href="?order=ASC">Date: first old ones</a></div>
+								{% endif %}
+								{% if request.get.order != 'DESC' %}
+									<div><a class="d-flex" href="?order=DESC">Date: first new ones</a></div>
+								{% endif %}
+							</div>
+						</div>
+					</div>
+				</div>
+				{% if posts | length > 0 %}
+					<div class="px-10 py-20 p-md-40 px-xl-70 py-xl-40 bg-1 border-radius-34">
+						<div class="fp-blog-posts row gy-40 g-md-30 gy-xl-80">
+							{% for post in posts %}
+								<div class="col-12 col-md-6 col-lg-4">
+									{% include 'partial/blog-card.twig' %}
+								</div>
+							{% endfor %}
+						</div>
+					</div>
+				{% else %}
+					<div class="text-center">{{ __('No results', 'fp') }}</div>
+				{% endif %}
+			</section>
+			{% include "partial/pagination.twig" with {'classes' : 'mt-80'} %}
+		</div>
+	</main>
+{% endblock %}
+
+
