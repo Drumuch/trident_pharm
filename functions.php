@@ -6,9 +6,6 @@ require_once dirname( __FILE__ ) . "/vendor/autoload.php";
 
 /* Define Constants */
 $theme_version = wp_get_theme()->get( 'Version' );
-//if ( WP_ENV === 'development' || WP_ENV === 'staging' ) {
-//    $theme_version = time();
-//}
 define( 'THEME_VERSION', $theme_version );
 define( 'THEME_DIR', trailingslashit( get_stylesheet_directory() ) );
 define( 'THEME_URI', trailingslashit( esc_url( get_stylesheet_directory_uri() ) ) );
