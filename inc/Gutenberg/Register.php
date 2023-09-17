@@ -50,9 +50,9 @@ class Register {
 	}
 
 	private function get_block_script_uri( string $block_name ): string {
-		$block_script_uri = str_replace( get_stylesheet_directory(), '', __DIR__ );
+		$block_script_uri = str_replace( THEME_DIR, '', __DIR__ );
 
-		return get_stylesheet_directory_uri() . "/{$block_script_uri}/" . self::BLOCKS_DIR . "/{$block_name}/" . self::SCRIPT_DIST_DIR;
+		return THEME_URI . "inc/Gutenberg/" . self::BLOCKS_DIR . "/{$block_name}/" . self::SCRIPT_DIST_DIR;
 	}
 
 }

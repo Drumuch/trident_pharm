@@ -7,19 +7,19 @@ defined( 'ABSPATH' ) || exit;
 class Comments {
 	public function __construct() {
 		/** Remove comments metabox from dashboard. **/
-		add_action( 'admin_init', array( $this, 'disable_comments_dashboard' ) );
+		add_action( 'admin_init', [ $this, 'disable_comments_dashboard' ] );
 
 		/** Disable support for comments and trackbacks in post types. **/
-		add_action( 'admin_init', array( $this, 'disable_comments_post_types_support' ) );
+		add_action( 'admin_init', [ $this, 'disable_comments_post_types_support' ] );
 
 		/** Redirect any user trying to access comments page. **/
-		add_action( 'admin_init', array( $this, 'disable_comments_admin_menu_redirect' ) );
+		add_action( 'admin_init', [ $this, 'disable_comments_admin_menu_redirect' ] );
 
 		/** Remove comments page in menu. **/
-		add_action( 'admin_menu', array( $this, 'disable_comments_admin_menu' ) );
+		add_action( 'admin_menu', [ $this, 'disable_comments_admin_menu' ] );
 
 		/** Remove comments links from admin bar. **/
-		add_action( 'add_admin_bar_menus', array( $this, 'disable_comments_admin_bar' ) );
+		add_action( 'add_admin_bar_menus', [ $this, 'disable_comments_admin_bar' ] );
 
 		/** Close comments on the front-end. **/
 		add_filter( 'comments_open', '__return_false', 20, 2 );

@@ -4,7 +4,6 @@ namespace FP\Plugins;
 
 defined( 'ABSPATH' ) || exit;
 
-use Timber\Image;
 use Timber\Menu;
 use Timber\Site;
 use Timber\Timber;
@@ -16,7 +15,7 @@ new Timber();
 /**
  * Sets the directories (inside your theme) to find .twig files
  */
-Timber::$dirname = array( 'twigs', 'inc/Gutenberg/Blocks' );
+Timber::$dirname = [ 'twigs', 'inc/Gutenberg/Blocks' ];
 
 /**
  * By default, Timber does NOT autoescape values. Want to enable Twig's autoescape?
@@ -26,8 +25,8 @@ Timber::$autoescape = false;
 
 class Timber_Settings extends Site {
 	public function __construct() {
-		add_filter( 'timber/context', array( $this, 'add_to_context' ) );
-		add_filter( 'timber/twig', array( $this, 'add_to_twig' ) );
+		add_filter( 'timber/context', [ $this, 'add_to_context' ] );
+		add_filter( 'timber/twig', [ $this, 'add_to_twig' ] );
 		parent::__construct();
 	}
 
@@ -53,7 +52,7 @@ class Timber_Settings extends Site {
 		$context['header']             = get_field( 'header', 'options' );
 		$context['footer']             = get_field( 'footer', 'options' );
 		$context['footer_policy_menu'] = get_field( 'policy_menu', 'options' );
-		$context['footer_first_menu']   = get_field( 'first_menu', 'options' );
+		$context['footer_first_menu']  = get_field( 'first_menu', 'options' );
 		$context['footer_second_menu'] = get_field( 'second_menu', 'options' );
 		$context['footer_third_menu']  = get_field( 'third_menu', 'options' );
 		$context['product_card_title'] = get_field( 'product_page_product_card', 'options' );
