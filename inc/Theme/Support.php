@@ -8,7 +8,7 @@ class Support {
 	public function __construct() {
 		add_action( 'after_setup_theme', [ $this, 'theme_support' ] );
 		add_theme_support( 'admin-bar', [ 'callback' => '__return_false' ] );
-
+		add_theme_support( 'title-tag' );
 		if ( ! class_exists( 'ACF' ) && ! is_admin() ) {
 			wp_die( 'Pls activate ACF Plugin' );
 		}

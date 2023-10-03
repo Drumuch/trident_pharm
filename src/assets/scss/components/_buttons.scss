@@ -30,6 +30,15 @@
       font-size: 1.6rem;
     }
   }
+  &--accent-2 {
+    background-color: rgb(var(--accent-2));
+    @media (hover) {
+      &:hover {
+        background-color: rgb(var(--accent-1));
+        color: var(--body);
+      }
+    }
+  }
   &::selection {
     color: inherit;
     background-color: transparent;

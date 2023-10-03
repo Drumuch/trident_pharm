@@ -14,6 +14,7 @@ define( 'THEME_URI', trailingslashit( esc_url( get_stylesheet_directory_uri() ) 
 new FP\Theme\Support();
 new FP\Theme\Enqueue();
 new FP\Theme\Comments();
+new FP\Theme\Shortcodes();
 
 /* Post Types */
 new FP\Post_Type\Manager();
@@ -30,3 +31,4 @@ new FP\Gutenberg\Register();
 new FP\Plugins\Acf\Manager();
 new FP\Plugins\Cf7();
 new FP\Plugins\Timber_Settings();
+

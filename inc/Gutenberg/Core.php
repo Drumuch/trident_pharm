@@ -13,7 +13,7 @@ class Core {
 		'core/list-item',
 		'core/quote',
 		'core/table',
-		'khan/form'
+		'core/table-of-contents'
 	];
 
 	// TODO: Refactor to use the main block array from Register.php
@@ -32,7 +32,7 @@ class Core {
 
 	public function __construct() {
 		// remove core blocks
-		add_filter( 'allowed_block_types_all', [ $this, 'allowed_blocks' ] );
+//		add_filter( 'allowed_block_types_all', [ $this, 'allowed_blocks' ] );
 		// disable gutenberg editor
 		add_filter( 'gutenberg_can_edit_post_type', [ $this, 'disable_gutenberg_editor' ], 10, 2 );
 		add_filter( 'use_block_editor_for_post_type', [ $this, 'disable_gutenberg_editor' ], 10, 2 );

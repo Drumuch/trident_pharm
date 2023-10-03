@@ -1,5 +1,5 @@
 {% if related_products | length > 0 %}
-	<aside class="fp-sidebar-list border-radius-45 border-radius-lg-25 bg-3 me-xl-30 mb-40 p-20 p-lg-30">
+	<div class="fp-sidebar-list border-radius-45 border-radius-lg-25 bg-3 mb-40 mb-lg-80 p-20 p-lg-30">
 		<div class="mb-lg-20 d-flex align-items-center justify-content-between">
 			<h3 class="mb-0 text-1">{{ title }}</h3>
 			<button class="fp-sidebar-list__toggle d-lg-none d-flex justify-content-center align-items-center" type="button" aria-label="{{ __('Sidebar Switcher') }}" data-sidebar-toggle>
@@ -19,5 +19,5 @@
 				{% endfor %}
 			</div>
 		</div>
-	</aside>
+	</div>
 {% endif %}

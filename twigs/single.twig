@@ -3,10 +3,35 @@
 {% block content %}
     <main>
 		<div class="container">
+			<div class="mb-30 mb-lg-80">
+				{% set breadcrumbs = [{'name': archive_title, 'link': fn('get_post_type_archive_link', 'post')}, {'name': post.title }] %}
+				{% include 'partial/breadcrumbs.twig' with {'items': breadcrumbs} %}
+			</div>
 			<section class="fp-post-section mb-80 mb-md-100 mb-xl-140">
 				<div class="row">
 					<div class="col-12 col-lg-3">
-						{% include 'partial/related-products.twig' with { 'title' : sidebar_title } %}
+						<aside class="fp-aside me-xl-30">
+							{% include 'partial/related-products.twig' with { 'title' : sidebar_title } %}
+							{% if ads_banners | length > 0 %}
+								<div class="mb-40 d-flex flex-column gap-40">
+									{% for banner in ads_banners %}
+										<div>
+											<h5 class="mb-20">{{ banner.title }}</h5>
+											<div class="bg-4 p-5 pb-20 border-radius-34">
+												<div class="mb-20">
+													<img class="border-radius-34" src="{{ Image(banner.image) }}" alt="">
+												</div>
+												<div class="px-15">
+													<a href="{{ banner.link.url }}" class="fp-button fp-button--accent-2 p-16 w-100 text-center" target="{{ banner.link.target ?: '_self' }}">
+														{{ banner.link.title }}
+													</a>
+												</div>
+											</div>
+										</div>
+									{% endfor %}
+								</div>
+							{% endif %}
+						</aside>
 					</div>
 					<div class="col-12 col-lg-9">
 						<article>
@@ -55,11 +80,11 @@
 															{% endif %}
 															{% if banner.banner_link.url and banner.banner_link.title %}
 																<div class="d-flex gap-10 gap-lg-20 justify-content-between align-items-center flex-shrink-0">
-																	<div class="text-accent-2 d-flex align-items-center flex-lg-column gap-3 gap-md-8 gap-lg-5">
+																	<div class="text-accent-1 d-flex align-items-center flex-lg-column gap-3 gap-md-8 gap-lg-5">
 																		<svg width="24" height="24"><use xlink:href="{{ svg_sprite }}#icon-oclock"></use></svg>
 																		<span>24/7</span>
 																	</div>
-																	<a href="{{ banner.banner_link.url }}" class="fp-button fp-button--light fp-button--small d-flex align-items-center gap-7" target="{{ banner.banner_link.target ?: '_self' }}">
+																	<a href="{{ banner.banner_link.url }}" class="fp-button fp-button--small d-flex align-items-center gap-7" target="{{ banner.banner_link.target ?: '_self' }}">
 																		<span class="icon border-radius-circle border-1 border-color-body d-flex justify-content-center align-items-center flex-shrink-0">
 																		   <svg width="20" height="20"><use xlink:href="{{ svg_sprite }}#icon-link-arrow"></use></svg>
 																		</span>

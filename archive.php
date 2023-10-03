@@ -24,12 +24,23 @@ $category_query = [
 $context  = Timber\Timber::get_context();
 $category = get_category( get_query_var( 'cat' ) );
 
+$breadcrumbs = [
+	[
+		'name' => get_the_title( get_option( 'page_for_posts', true ) ),
+		'link' => get_post_type_archive_link( 'post' ),
+	],
+	[
+		'name' => $category->cat_name,
+	]
+];
+
 $data = [
 	'sidebar_title'   => get_field( 'category_page_title', 'options' ) ?: __( 'Category', 'fp' ),
-	'title'           => get_the_title( get_option( 'page_for_posts', true ) ),
+	'title'           => $category->cat_name,
 	'categories'      => Timber\Timber::get_terms( $category_query ),
 	'posts'           => new Timber\PostQuery(),
-	'active_category' => $category
+	'active_category' => $category,
+	'breadcrumbs'     => $breadcrumbs
 ];
 
 $context = array_merge( $context, $data );

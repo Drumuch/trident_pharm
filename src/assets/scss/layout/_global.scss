@@ -203,13 +203,14 @@ body {
   }
 }
 
+.fp-aside {
+  @include media-breakpoint-up(lg) {
+    //position: sticky;
+    //top: var(--header-height);
+  }
+}
 
 .fp-sidebar-list {
-  @include media-breakpoint-up(lg) {
-    position: sticky;
-    top: var(--header-height);
-  }
-
   &__toggle {
     height: 48px;
     width: 48px;

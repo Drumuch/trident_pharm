@@ -260,6 +260,19 @@
     }
   }
 
+  ul, ol {
+    &::marker {
+      color: rgb(var(--accent-1));
+    }
+    margin-bottom: 0 !important;
+    li + li {
+      margin-top: 12px;
+      @include media-breakpoint-up(lg) {
+        margin-top: 20px;
+      }
+    }
+  }
+
 }
 
 mark, .mark {

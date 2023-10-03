@@ -92,10 +92,10 @@ class Post extends Post_Type {
 			'type'  => 'gallery',
 		] );
 
-		$this->add_tab( __( 'Banners', 'fp' ) );
+		$this->add_tab( __( 'Intro Banners', 'fp' ) );
 
 		$this->add_field( [
-			'label'        => __( 'Banners', 'fp' ),
+			'label'        => __( 'Intro Banners', 'fp' ),
 			'name'         => 'banners',
 			'type'         => 'repeater',
 			'button_label' => __( 'Add Banner', 'fp' ),
@@ -127,6 +127,45 @@ class Post extends Post_Type {
 			],
 			'min'          => 0,
 			'max'          => 2,
+			'layout'       => 'block'
+		] );
+
+		$this->add_tab( __( 'Ads Banners', 'fp' ) );
+
+		$this->add_field( [
+			'label'        => __( 'Ads Banners', 'fp' ),
+			'name'         => 'ads_banners',
+			'type'         => 'repeater',
+			'button_label' => __( 'Add Banner', 'fp' ),
+			'sub_fields'   => [
+				[
+					'label'         => __( 'Title', 'fp' ),
+					'name'          => 'title',
+					'type'          => 'text',
+					'default_value' => 'KÖPA Priligy Piller Panatet',
+					'required'      => 1
+				],
+				[
+					'label'    => __( 'Image', 'fp' ),
+					'name'     => 'image',
+					'type'     => 'image',
+					'wrapper'  => [
+						'width' => '50',
+					],
+					'required' => 1
+				],
+				[
+					'label'    => __( 'Link', 'fp' ),
+					'name'     => 'link',
+					'type'     => 'link',
+					'wrapper'  => [
+						'width' => '50',
+					],
+					'required' => 1
+				],
+			],
+			'min'          => 0,
+			'max'          => 3,
 			'layout'       => 'block'
 		] );
 

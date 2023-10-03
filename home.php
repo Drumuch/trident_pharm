@@ -16,6 +16,12 @@
 
 defined( 'ABSPATH' ) || exit;
 
+$breadcrumbs = [
+	[
+		'name' => get_the_title( get_option( 'page_for_posts', true ) ),
+	]
+];
+
 $category_query = [
 	'taxonomy'   => 'category',
 	'hide_empty' => true,
@@ -28,7 +34,8 @@ $data = [
 	'sidebar_title' => get_field( 'category_page_title', 'options' ) ?: __( 'Category', 'fp' ),
 	'title'         => get_the_title( get_option( 'page_for_posts', true ) ),
 	'categories'    => Timber\Timber::get_terms( $category_query ),
-	'posts'         => new Timber\PostQuery()
+	'posts'         => new Timber\PostQuery(),
+	'breadcrumbs'   => $breadcrumbs
 ];
 
 $context = array_merge( $context, $data );
