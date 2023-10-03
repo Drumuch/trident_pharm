@@ -16,7 +16,7 @@
     "postTypes": [
       "post",
       "page",
-      "product"
+      "blog"
     ]
   },
   "supports": {

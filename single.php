@@ -15,8 +15,8 @@
 
 defined( 'ABSPATH' ) || exit;
 
-$context         = \Timber\Timber::context();
-$timber_post     = new \Timber\Post();
+$context         = Timber\Timber::context();
+$timber_post     = new Timber\Post();
 $context['post'] = $timber_post;
 
 $related_products_args = [
@@ -36,11 +36,11 @@ $data             = [
 	'sidebar_title'          => get_field( 'product_page_title', 'options' ) ?: __( 'Products', 'fp' ),
 	'related_products_title' => get_field( 'product_page_related_products', 'options' ),
 	'related_products'       => $related_products,
-	'archive_link'           => get_option( 'page_for_posts' ),
+	'archive_title'          => get_the_title( get_option( 'page_for_posts', true ) ),
 	'settings'               => get_field( 'settings' ),
 	'banners'                => get_field( 'banners' ),
+	'ads_banners'            => get_field( 'ads_banners' ),
 ];
 
 $context = array_merge( $context, $data );
-
-\Timber\Timber::render( array( 'single.twig' ), $context );
+Timber\Timber::render( 'single.twig', $context );

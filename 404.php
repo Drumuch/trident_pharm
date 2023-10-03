@@ -10,7 +10,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-$context         = Timber::get_context();
+$context         = Timber\Timber::get_context();
 $context['post'] = get_field( '404_page', 'options' );
 
 $data = [
@@ -20,4 +20,4 @@ $data = [
 
 $context = array_merge( $context, $data );
 
-Timber::render( '404.twig', $context );
+Timber\Timber::render( '404.twig', $context );

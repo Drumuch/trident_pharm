@@ -11,7 +11,7 @@
     "quote"
   ],
   "acf": {
-    "mode": "preview",
+    "mode": "edit",
     "renderTemplate": "view.php",
     "postTypes": [
       "post",

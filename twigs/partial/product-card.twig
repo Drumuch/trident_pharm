@@ -1,5 +1,5 @@
-<article class="fp-product-card overflow-hidden position-relative bg-body border-radius-15">
-	<div class="fp-product-card__thumb d-flex justify-content-center align-items-center border-radius-15 p-15 bg-1">
+<article class="fp-card overflow-hidden position-relative bg-body border-radius-15">
+	<div class="fp-card__thumb d-flex justify-content-center align-items-center border-radius-15 p-15 bg-1">
 		{% if post.thumbnail %}
 			<picture>
 				<source srcset="{{ post.thumbnail.src|resize(270)|towebp }} 1x, {{ post.thumbnail.src|resize(540)|towebp }} 1.5x" type="image/webp" width="515" height="290">
@@ -7,13 +7,13 @@
 			</picture>
 		{% endif %}
 	</div>
-	<div class="fp-product-card__body d-flex flex-column justify-content-between p-15 pb-32">
+	<div class="fp-card__body d-flex flex-column justify-content-between p-15 pb-32">
 		<h4 class="text-1 h6 mb-4">{{ post.title }}</h4>
 		{% if post.post_excerpt %}
 			<p class="fp-copy-small mb-20">{{ post.post_excerpt|excerpt(10) }}</p>
 		{% endif %}
 		<div class="d-flex justify-content-end pe-10">
-			<a class="fp-product-card__link fp-button-2 d-flex align-items-center gap-15" href="{{ post.link }}">
+			<a class="fp-card__link fp-button-2 d-flex align-items-center gap-15" href="{{ post.link }}">
 				{{ product_card_title }}
 				<span class="icon border-radius-circle border-1 border-color-accent-2 d-flex justify-content-center align-items-center flex-shrink-0">
 					<svg width="20" height="20">

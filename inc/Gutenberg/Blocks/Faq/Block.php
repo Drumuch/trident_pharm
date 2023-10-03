@@ -14,6 +14,18 @@ class Block extends Gutenberg_Block {
 	public function init_fields() {
 
 		$this->add_field( [
+			'label'        => __( 'Google Markup', 'fp' ),
+			'name'         => 'google_markup',
+			'type'         => 'button_group',
+			'choices'      => [
+				'yes'  => __( 'Yes', 'fp' ),
+				'no' => __( 'No', 'fp' ),
+			],
+			'return_format' => 'value',
+			'default_value' => 'no',
+		]);
+
+		$this->add_field( [
 			'label'        => __( 'FAQ', 'fp' ),
 			'name'         => 'faq',
 			'type'         => 'repeater',
@@ -30,9 +42,10 @@ class Block extends Gutenberg_Block {
 				[
 					'label'         => __( 'Description', 'fp' ),
 					'name'          => 'description',
-					'type'          => 'textarea',
-					'row'           => '4',
-					'default_value' => 'Läkemedelspriserna är föremål för allmänna ?'
+					'type'          => 'wysiwyg',
+					'default_value' => 'Läkemedelspriserna är föremål för allmänna ?',
+					'toolbar'       => 'full',
+					'media_upload'  => 1,
 				],
 			],
 		] );

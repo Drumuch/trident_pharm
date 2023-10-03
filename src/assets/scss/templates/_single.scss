@@ -62,11 +62,11 @@
     }
   }
   a:not(.fp-button) {
-    color: rgb(var(--accent-2));
+    color: rgb(var(--accent-1));
     text-decoration: underline;
     @media (hover) {
       &:hover {
-        color: rgb(var(--accent-1));
+        color: rgb(var(--accent-2));
       }
     }
   }

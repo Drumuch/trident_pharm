@@ -21,14 +21,28 @@ $category_query = [
 	'parent'     => 0
 ];
 
-$context                    = \Timber\Timber::get_context();
-$context['sidebar_title']   = get_field( 'category_page_title', 'options' ) ?: __( 'Category', 'fp' );
-$context['title']           = get_the_title( get_option( 'page_for_posts', true ) );
-$context['categories']      = \Timber\Timber::get_terms( $category_query );
-$context['posts']           = new Timber\PostQuery();
-$category                   = get_category( get_query_var( 'cat' ) );
-$context['active_category'] = $category;
+$context  = Timber\Timber::get_context();
+$category = get_category( get_query_var( 'cat' ) );
 
-$templates = array( 'home.twig' );
+$breadcrumbs = [
+	[
+		'name' => get_the_title( get_option( 'page_for_posts', true ) ),
+		'link' => get_post_type_archive_link( 'post' ),
+	],
+	[
+		'name' => $category->cat_name,
+	]
+];
 
-\Timber\Timber::render( $templates, $context );
+$data = [
+	'sidebar_title'   => get_field( 'category_page_title', 'options' ) ?: __( 'Category', 'fp' ),
+	'title'           => $category->cat_name,
+	'categories'      => Timber\Timber::get_terms( $category_query ),
+	'posts'           => new Timber\PostQuery(),
+	'active_category' => $category,
+	'breadcrumbs'     => $breadcrumbs
+];
+
+$context = array_merge( $context, $data );
+
+Timber\Timber::render( 'home.twig', $context );

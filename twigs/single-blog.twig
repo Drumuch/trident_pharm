@@ -1,0 +1,62 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    <main>
+		<div class="container">
+			<div class="mb-30 mb-lg-80">
+				{% set breadcrumbs = [{'name': 'Blog', 'link': fn('get_post_type_archive_link', 'blog')}, {'name': post.title }] %}
+				{% include 'partial/breadcrumbs.twig' with {'items': breadcrumbs} %}
+			</div>
+			<div class="row mb-80 mb-lg-100" itemscope itemtype="https://schema.org/NewsArticle">
+				<div class="col-12 col-md-5 col-lg-4">
+					<h1 class="h2 mb-20 mb-md-40 mb-lg-80 mt-lg-30 text-accent-1" itemprop="headline">{{ post.title }}</h1>
+					<time class="fp-decor-excerpt d-inline-block h5 mb-40 mb-md-0 text-2" datetime="{{ post.date | date('c') }}"  itemprop="datePublished" content="{{ post.date | date('c') }}">{{ post.date | date('M. d, Y') }}</time>
+				</div>
+				<div class="col-12 col-md-7 col-lg-8">
+					{% if post.thumbnail.src %}
+						<picture class="d-block border-radius-25 overflow-hidden">
+							<source media="(max-width: 991px)"
+									srcset="{{ post.thumbnail.src|resize(478, 312)|tojpg }} 1x, {{ post.thumbnail.src|resize(717, 468)|tojpg }} 1.5x"
+									type="image/webp" width="478" height="312">
+							<source media="(max-width: 991px)"
+									srcset="{{ post.thumbnail.src|resize(478, 312)|towebp }} 1x, {{ post.thumbnail.src|resize(717, 468)|towebp }} 1.5x"
+									type="image/webp" width="478" height="312">
+
+							<source srcset="{{ post.thumbnail.src|resize(880, 574)|towebp }} 1x, {{ post.thumbnail.src|resize(1320, 861)|towebp }} 1.5x"
+									type="image/webp" width="880" height="574">
+							<img src="{{ post.thumbnail.src|resize(880, 574)|tojpg }}" srcset="{{ post.thumbnail.src|resize(1320, 861)|tojpg }}" alt="{{ post.thumbnail.alt }}" class="w-100" width="880" height="574" itemprop="image">
+						</picture>
+					{% endif %}
+				</div>
+			</div>
+			<div class="row mb-100 mb-lg-140">
+				<div class="col-12">
+					<article class="fp-single-content">
+						{{ post.content }}
+					</article>
+				</div>
+			</div>
+			{% if related_posts | length > 0 %}
+				<section class="fp-block fp-latest-product-block">
+					<div class="position-relative pt-130 pb-60 border-radius-15 border-radius-xl-45 bg-3 px-10 px-md-40 px-lg-70">
+						<div class="overflow-hidden">
+							<div class="position-absolute top-0 start-50 translate-middle-x">
+								<div class="fp-section-heading-wrap position-relative bg-body px-24 pb-24 px-lg-50 pb-lg-40 px-xl-70 pb-xl-45">
+									<span class="corner left"></span>
+									<span class="corner right"></span>
+									<h2 class="position-relative z-1 text-nowrap text-center text-1 mb-0">See more blogs</h2>
+								</div>
+							</div>
+						</div>
+						<div class="fp-latest-product-block__row d-flex gap-10 gap-md-20 gap-lg-30 pb-54">
+							{% for post in related_posts %}
+								{% include 'partial/blog-card.twig' %}
+							{% endfor %}
+						</div>
+					</div>
+				</section>
+			{% endif %}
+		</div>
+	</main>
+{% endblock %}
+

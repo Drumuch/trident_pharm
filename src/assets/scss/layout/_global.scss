@@ -58,6 +58,7 @@ main {
 html {
   font-size: 62.5%;
   scroll-padding-top: calc(var(--header-height) + 40px);
+  margin: 0 !important;
 }
 
 body {
@@ -76,7 +77,7 @@ body {
   }
 
   &.admin-bar {
-    margin-top: var(--admin-bar);
+    //margin-top: var(--admin-bar);
     #wpadminbar {
       @include media-breakpoint-down(md) {
         display: none;
@@ -100,7 +101,7 @@ body {
 }
 
 
-.fp-product-card {
+.fp-card {
   min-width: 200px;
   box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.05);
   @include media-breakpoint-up(lg) {
@@ -108,9 +109,15 @@ body {
   }
   @media (hover) {
     &:hover {
-      .fp-product-card__thumb {
+      .fp-card__thumb {
         transform: scale(1.05);
       }
+    }
+  }
+  &--blog {
+    min-width: 280px;
+    @include media-breakpoint-up(lg) {
+      min-width: 380px;
     }
   }
 
@@ -196,13 +203,14 @@ body {
   }
 }
 
+.fp-aside {
+  @include media-breakpoint-up(lg) {
+    //position: sticky;
+    //top: var(--header-height);
+  }
+}
 
 .fp-sidebar-list {
-  @include media-breakpoint-up(lg) {
-    position: sticky;
-    top: var(--header-height);
-  }
-
   &__toggle {
     height: 48px;
     width: 48px;
@@ -271,7 +279,14 @@ body {
     --bs-gutter-x: 45px;
   }
 
-  .fp-product-card {
+  .fp-card {
+    min-width: auto;
+    height: 100%;
+  }
+}
+
+.fp-blog-posts {
+  .fp-card {
     min-width: auto;
     height: 100%;
   }

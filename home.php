@@ -16,18 +16,28 @@
 
 defined( 'ABSPATH' ) || exit;
 
+$breadcrumbs = [
+	[
+		'name' => get_the_title( get_option( 'page_for_posts', true ) ),
+	]
+];
+
 $category_query = [
 	'taxonomy'   => 'category',
 	'hide_empty' => true,
 	'parent'     => 0
 ];
 
-$context                  = \Timber\Timber::get_context();
-$context['sidebar_title'] = get_field( 'category_page_title', 'options' ) ?: __( 'Category', 'fp' );
-$context['title']         = get_the_title( get_option( 'page_for_posts', true ) );
-$context['categories']    = \Timber\Timber::get_terms( $category_query );
-$context['posts']         = new Timber\PostQuery();
+$context = Timber\Timber::get_context();
 
-$templates = array( 'home.twig' );
+$data = [
+	'sidebar_title' => get_field( 'category_page_title', 'options' ) ?: __( 'Category', 'fp' ),
+	'title'         => get_the_title( get_option( 'page_for_posts', true ) ),
+	'categories'    => Timber\Timber::get_terms( $category_query ),
+	'posts'         => new Timber\PostQuery(),
+	'breadcrumbs'   => $breadcrumbs
+];
 
-\Timber\Timber::render( $templates, $context );
+$context = array_merge( $context, $data );
+
+Timber\Timber::render( 'home.twig', $context );

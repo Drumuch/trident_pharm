@@ -14,6 +14,7 @@
     "zip": "composer install && npm i && gulp zip --production"
   },
   "dependencies": {
+    "@popperjs/core": "^2.11.8",
     "@splidejs/splide": "^4.1.4",
     "axios": "^1.4.0",
     "bootstrap": "5.2.3"

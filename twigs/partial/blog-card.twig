@@ -1,0 +1,26 @@
+<article class="fp-card fp-card--blog overflow-hidden position-relative bg-body border-radius-34">
+	{% if post.thumbnail %}
+		<div class="p-4 mb-10 mb-lg-0">
+			<picture class="w-100 border-radius-34 overflow-hidden">
+				<source srcset="{{ post.thumbnail.src|resize(380, 280)|towebp }} 1x, {{ post.thumbnail.src|resize(560, 420)|towebp }} 1.5x" type="image/webp" width="380" height="280">
+				<img class="w-100" width="380" height="280" src="{{ post.thumbnail.src|resize(380, 280)|tojpg }}" srcset="{{ post.thumbnail.src|resize(560, 420)|tojpg }} 1.5x" alt="{{ post.title }}" loading="lazy">
+			</picture>
+		</div>
+	{% endif %}
+	<div class="fp-card__body d-flex flex-column justify-content-between pt-0 py-24 pt-lg-24 px-16">
+		<h4 class="text-accent-2 h6 mb-10 mb-lg-20">{{ post.title }}</h4>
+		{% if post.post_excerpt %}
+			<p class="fp-copy-small mb-10 mb-lg-20">{{ post.post_excerpt|excerpt(20) }}</p>
+		{% endif %}
+		<div class="d-flex justify-content-end pe-10">
+			<a class="fp-card__link fp-button-2 d-flex align-items-center gap-15" href="{{ post.link }}">
+				Read More
+				<span class="icon border-radius-circle border-1 border-color-accent-2 d-flex justify-content-center align-items-center flex-shrink-0">
+					<svg width="20" height="20">
+						<use xlink:href="{{ svg_sprite }}#icon-link-arrow"></use>
+					</svg>
+				</span>
+			</a>
+		</div>
+	</div>
+</article>

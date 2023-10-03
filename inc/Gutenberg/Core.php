@@ -5,7 +5,7 @@ namespace FP\Gutenberg;
 defined( 'ABSPATH' ) || exit;
 
 class Core {
-	const DEFAULT_BLOCKS = array(
+	const DEFAULT_BLOCKS = [
 		'core/image',
 		'core/paragraph',
 		'core/heading',
@@ -13,10 +13,11 @@ class Core {
 		'core/list-item',
 		'core/quote',
 		'core/table',
-	);
+		'core/table-of-contents'
+	];
 
 	// TODO: Refactor to use the main block array from Register.php
-	const CUSTOM_BLOCKS = array(
+	const CUSTOM_BLOCKS = [
 		'acf/fp-faq',
 		'acf/fp-bullet',
 		'acf/fp-pros-cons',
@@ -26,17 +27,17 @@ class Core {
 		'acf/fp-product-banner',
 		'acf/fp-simple-banner',
 		'acf/fp-order-button',
-	);
+	];
 
 
 	public function __construct() {
 		// remove core blocks
-		add_filter( 'allowed_block_types_all', array( $this, 'allowed_blocks' ) );
+//		add_filter( 'allowed_block_types_all', [ $this, 'allowed_blocks' ] );
 		// disable gutenberg editor
-		add_filter( 'gutenberg_can_edit_post_type', array( $this, 'disable_gutenberg_editor' ), 10, 2 );
-		add_filter( 'use_block_editor_for_post_type', array( $this, 'disable_gutenberg_editor'), 10, 2 );
+		add_filter( 'gutenberg_can_edit_post_type', [ $this, 'disable_gutenberg_editor' ], 10, 2 );
+		add_filter( 'use_block_editor_for_post_type', [ $this, 'disable_gutenberg_editor' ], 10, 2 );
 		// remove blocks pattern
-		add_action( 'init', array( $this, 'remove_block_pattern' ) );
+		add_action( 'init', [ $this, 'remove_block_pattern' ] );
 
 	}
 
@@ -49,11 +50,10 @@ class Core {
 	 */
 	function disable_editor( $id = false ) {
 
-		$excluded_templates = array(
-//			'page-templates/contact-us.php',
-		);
+		$excluded_templates = [//			'page-templates/contact-us.php',
+		];
 
-		$excluded_ids = array( get_option( 'page_for_posts' ));
+		$excluded_ids = [ get_option( 'page_for_posts' ) ];
 
 		if ( empty( $id ) ) {
 			return false;

@@ -230,7 +230,10 @@
 
   table {
     width: 100%;
-
+    border-collapse: collapse;
+    border-style: hidden;
+    border-radius: 25px;
+    background-color: rgba(var(--accent-1), 0.15);
     @include media-breakpoint-up(md) {
 
       &.has-fixed-layout {
@@ -244,13 +247,30 @@
 
     tr:first-child {
       text-transform: uppercase;
+      color: var(--text);
     }
   }
 
   th,
   td {
-    border: 1px solid rgb(var(--text));
+    border: 1px solid rgba(var(--accent-2), 0.30);
     padding: 10px;
+    @include media-breakpoint-up(lg) {
+      padding: 30px;
+    }
+  }
+
+  ul, ol {
+    &::marker {
+      color: rgb(var(--accent-1));
+    }
+    margin-bottom: 0 !important;
+    li + li {
+      margin-top: 12px;
+      @include media-breakpoint-up(lg) {
+        margin-top: 20px;
+      }
+    }
   }
 
 }

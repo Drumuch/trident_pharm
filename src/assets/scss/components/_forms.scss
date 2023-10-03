@@ -1,0 +1,27 @@
+.fp-blog-filter {
+  min-width: 230px;
+  .icon {
+    height: 20px;
+    width: 20px;
+  }
+  button.show {
+    transform: rotate(180deg);
+  }
+  .dropdown-menu {
+    border-radius: 34px;
+    padding: 10px 20px;
+    width: 100%;
+    border-color: transparent;
+    & > div:not(:last-child) {
+      margin-bottom: 10px;
+    }
+    a {
+      @media (hover) {
+        &:hover {
+          color: rgb(var(--accent-1));
+        }
+      }
+    }
+  }
+
+}
