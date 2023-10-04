@@ -9,10 +9,12 @@
 			</div>
 			<section class="fp-post-section mb-80 mb-md-100 mb-xl-140">
 				<div class="row">
-					<div class="col-12 col-lg-3">
+					<div class="col-12 col-lg-3 order-2 order-lg-1 position-relative">
 						<aside class="fp-aside me-xl-30">
 							{% include 'partial/related-products.twig' with { 'title' : sidebar_title } %}
-							{% if ads_banners | length > 0 %}
+						</aside>
+						{% if ads_banners | length > 0 %}
+							<div class="fp-ads-banners">
 								<div class="mb-40 d-flex flex-column gap-40">
 									{% for banner in ads_banners %}
 										<div>
@@ -30,10 +32,10 @@
 										</div>
 									{% endfor %}
 								</div>
-							{% endif %}
-						</aside>
+							</div>
+						{% endif %}
 					</div>
-					<div class="col-12 col-lg-9">
+					<div class="col-12 col-lg-9 order-1 order-lg-2">
 						<article>
 							<div class="row">
 								<div class="col-12 col-md-6">

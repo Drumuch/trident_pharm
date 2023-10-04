@@ -203,10 +203,10 @@ body {
   }
 }
 
-.fp-aside {
+.fp-ads-banners {
   @include media-breakpoint-up(lg) {
-    //position: sticky;
-    //top: var(--header-height);
+    position: sticky;
+    top: calc(var(--header-height) + 20px);
   }
 }
 
