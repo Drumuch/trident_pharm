@@ -20,19 +20,19 @@
 						</div>
 						<div class="col-md-4 col-lg-3">
 							{% if footer_first_menu.menu | length > 0 and footer_first_menu.title %}
-								<p class="fp-footer-menu-toggle fp-copy-small d-inline-flex mb-0 mb-md-20 mb-lg-30" data-dropdown-toggle>{{ footer_first_menu.title }}</p>
+								<p class="fp-footer-menu-toggle h5 d-inline-flex mb-0 mb-md-20 mb-lg-30" data-dropdown-toggle>{{ footer_first_menu.title }}</p>
 								{% include "partial/footer-menu.twig" with {'items': footer_first_menu.menu, 'class': 'dropdown' } %}
 							{% endif %}
 						</div>
 						<div class="col-md-4 col-lg-3">
 							{% if footer_second_menu.menu | length > 0 and footer_second_menu.title %}
-								<p class="fp-footer-menu-toggle fp-copy-small d-inline-flex mb-0 mb-md-20 mb-lg-30" data-dropdown-toggle>{{ footer_second_menu.title }}</p>
+								<p class="fp-footer-menu-toggle h5 d-inline-flex mb-0 mb-md-20 mb-lg-30" data-dropdown-toggle>{{ footer_second_menu.title }}</p>
 								{% include "partial/footer-menu.twig" with {'items': footer_second_menu.menu, 'class': 'dropdown' } %}
 							{% endif %}
 						</div>
 						<div class="col-md-4 col-lg-3">
 							{% if footer_third_menu.menu | length > 0 and footer_third_menu.title %}
-								<p class="fp-footer-menu-toggle fp-copy-small d-inline-flex mb-0 mb-md-20 mb-lg-30" data-dropdown-toggle>{{ footer_third_menu.title }}</p>
+								<p class="fp-footer-menu-toggle h5 d-inline-flex mb-0 mb-md-20 mb-lg-30" data-dropdown-toggle>{{ footer_third_menu.title }}</p>
 								{% include "partial/footer-menu.twig" with {'items': footer_third_menu.menu, 'class': 'dropdown' } %}
 							{% endif %}
 						</div>

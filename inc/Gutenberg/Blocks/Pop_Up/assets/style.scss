@@ -1,0 +1,87 @@
+@import "abstracts/abstracts";
+@import "modal";
+
+.fp-pop-up {
+  .modal-dialog {
+    border-radius: 12px;
+    //margin: 0 15px;
+    box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    top: 50%;
+    transform: translateY(-50%) !important;
+    background-color: $white;
+    --bs-modal-margin: 15px;
+    @include media-breakpoint-up(lg) {
+      border-radius: 45px;
+      max-width: 850px;
+    }
+    .decor-1 {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 1;
+      @include media-breakpoint-up(lg) {
+        width: 80px;
+        height: 80px;
+        left: auto;
+        top: 30px;
+        right: 120px;
+      }
+    }
+    .decor-2 {
+      position: absolute;
+      z-index: 1;
+      display: none;
+      @include media-breakpoint-up(lg) {
+        display: block;
+        bottom: 35px;
+        left: 35px;
+        width: 100px;
+        height: 100px;
+      }
+    }
+  }
+  .modal-content {
+    //background-color: rgba(var(--accent-2), 0.15);
+    position: relative;
+    z-index: 2;
+    border: none;
+    background-color: transparent;
+  }
+  .clipboard {
+    color: rgb(var(--text-2));
+    background-color: var(--body);
+    &:hover {
+      color: var(--body);
+      background-color: rgb(var(--accent-2));
+      svg {
+        color: var(--body);
+      }
+    }
+    svg {
+      color: rgb(var(--accent-2));
+      @include fp-transition;
+    }
+  }
+  .btn-close {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    top: 10px;
+    right: 10px;
+    border: none;
+    color: rgb(var(--accent-2));
+    @media (hover) {
+      &:hover {
+        color: rgb(var(--accent-1));
+      }
+    }
+    @include media-breakpoint-up(lg) {
+      width: 40px;
+      height: 40px;
+      top: 20px;
+      right: 20px;
+    }
+  }
+}
+

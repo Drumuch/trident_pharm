@@ -7,8 +7,9 @@
   "category": "custom-blocks",
   "icon": "block-default",
   "keywords": [
-    "test",
-    "quote"
+    "contact form",
+    "form",
+    "contact"
   ],
   "acf": {
     "mode": "preview",

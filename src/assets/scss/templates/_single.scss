@@ -50,16 +50,13 @@
 
 .fp-single-content {
   .wp-block-heading {
-    margin-bottom: 40px;
+    margin-bottom: 24px;
   }
   p {
-    margin-bottom: 40px;
+    margin-bottom: 24px;
   }
   .fp-block {
-    margin-bottom: 60px;
-    @include media-breakpoint-up(lg) {
-      margin-bottom: 80px;
-    }
+    @extend %block-indent;
   }
   a:not(.fp-button) {
     color: rgb(var(--accent-1));

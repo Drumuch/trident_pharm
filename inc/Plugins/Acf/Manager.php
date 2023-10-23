@@ -11,7 +11,8 @@ class Manager {
 		Options\Settings::class,
 		Options\Header::class,
 		Options\Footer::class,
-		Post_Types\Post::class
+		Post_Types\Post::class,
+		Shared\Notes::class
 	];
 
 	public function __construct() {

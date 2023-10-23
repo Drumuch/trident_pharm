@@ -13,7 +13,9 @@ class Core {
 		'core/list-item',
 		'core/quote',
 		'core/table',
-		'core/table-of-contents'
+		'core/table-of-contents',
+		'core/block',
+		'core/template',
 	];
 
 	// TODO: Refactor to use the main block array from Register.php
@@ -27,6 +29,7 @@ class Core {
 		'acf/fp-product-banner',
 		'acf/fp-simple-banner',
 		'acf/fp-order-button',
+		'acf/fp-pop-up',
 	];
 
 

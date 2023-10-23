@@ -75,7 +75,7 @@
   li + li {
     margin-top: 10px;
     @include media-breakpoint-up(md) {
-      margin-top: 20px;
+      margin-top: 12px;
     }
   }
   a {
