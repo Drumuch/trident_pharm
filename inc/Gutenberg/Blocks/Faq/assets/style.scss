@@ -61,6 +61,12 @@
     }
 	}
 
+  &__body {
+    table {
+      background: rgba(var(--accent-2), 0.15);
+    }
+  }
+
 	&__collapse {
 		max-height: 0;
 		will-change: max-height;

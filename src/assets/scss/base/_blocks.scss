@@ -94,7 +94,7 @@
   color: var(--body);
 }
 
-.fp-simple-banner{
+.fp-simple-banner {
   max-width: 460px;
 }
 
@@ -109,6 +109,7 @@
 .fp-decor-excerpt {
   padding-left: 15px;
   position: relative;
+
   &:after {
     content: '';
     position: absolute;
@@ -215,16 +216,38 @@
 }
 
 // Table
-.wp-block-table {
-
-  @extend %block-indent;
-
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-style: hidden;
+  border-radius: 25px;
   @include media-breakpoint-down(md) {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
 
-    th {
-      min-width: 150px;
+    th, td {
+      max-width: 150px;
+      word-wrap: break-word;
+    }
+  }
+  th,
+  td {
+    border: 1px solid rgba(var(--accent-2), 0.30);
+    padding: 10px;
+    @include media-breakpoint-up(lg) {
+      padding: 30px;
+    }
+  }
+}
+
+.wp-block-table {
+  @extend %block-indent;
+  th,
+  td {
+    border: 1px solid rgba(var(--accent-2), 0.30);
+    padding: 10px;
+    @include media-breakpoint-up(lg) {
+      padding: 30px;
     }
   }
 
@@ -251,20 +274,13 @@
     }
   }
 
-  th,
-  td {
-    border: 1px solid rgba(var(--accent-2), 0.30);
-    padding: 10px;
-    @include media-breakpoint-up(lg) {
-      padding: 30px;
-    }
-  }
-
   ul, ol {
     &::marker {
       color: rgb(var(--accent-1));
     }
+
     margin-bottom: 0 !important;
+
     li + li {
       margin-top: 12px;
       @include media-breakpoint-up(lg) {

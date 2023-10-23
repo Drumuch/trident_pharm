@@ -31,4 +31,5 @@ new FP\Gutenberg\Register();
 new FP\Plugins\Acf\Manager();
 new FP\Plugins\Cf7();
 new FP\Plugins\Timber_Settings();
+new FP\Plugins\Yoast();
 

@@ -1,0 +1,40 @@
+{% if fields.display == 'show' %}
+	<section {{ anchor }} {{ attribute }}>
+		<!-- Modal -->
+		<div class="modal fade" data-pop-up data-timer="{{ fields.timer }}" data-bs-keyboard="false" tabindex="-1" aria-labelledby="promoPopUp" aria-hidden="true">
+			<div class="modal-dialog">
+				<svg class="decor-1" width="40" height="40"><use xlink:href="{{ svg_sprite }}#icon-percent"></use></svg>
+				<svg class="decor-2" width="40" height="40"><use xlink:href="{{ svg_sprite }}#icon-percent"></use></svg>
+				<div class="modal-content px-20 pt-24 pb-40 px-lg-140 px-xl-170 text-center">
+					<button type="button" class="btn-close p-0 m-0 position-absolute" data-bs-dismiss="modal" aria-label="Close">
+						<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M20 0C8.94 0 0 8.94 0 20C0 31.06 8.94 40 20 40C31.06 40 40 31.06 40 20C40 8.94 31.06 0 20 0ZM30 27.18L27.18 30L20 22.82L12.82 30L10 27.18L17.18 20L10 12.82L12.82 10L20 17.18L27.18 10L30 12.82L22.82 20L30 27.18Z" fill="currentColor"/>
+						</svg>
+					</button>
+					{% if fields.title %}
+						<p class="h2 text-1 mb-20 mb-lg-40">{{ fields.title }}</p>
+					{% endif %}
+					{% if fields.description %}
+						<p class="h4 text-1 mb-20 mb-lg-40">{{ fields.description }}</p>
+					{% endif %}
+					{% if fields.promo_code %}
+						<div class="px-lg-50 mb-20 mb-lg-40 d-flex justify-content-center">
+							<button class="clipboard fp-button d-flex justify-content-center align-items-center gap-20 border border-1 border-color-accent-2" data-clipboard="{{ fields.promo_code }}">
+								<svg width="20" height="20"><use xlink:href="{{ svg_sprite }}#icon-copy"></use></svg>
+								{{ fields.promo_code }}
+							</button>
+						</div>
+					{% endif %}
+					{% if fields.link.url and fields.link.title %}
+						<a href="{{ fields.link.url }}" class="fp-button fp-button--accent-2 text-center d-flex justify-content-center gap-20 align-items-center" target="{{ fields.link.target ?: '_self' }}">
+							{{ fields.link.title }}
+							<span class="icon border-radius-circle border-1 border-color-body d-flex justify-content-center align-items-center flex-shrink-0">
+								<svg width="20" height="20"><use xlink:href="{{ svg_sprite }}#icon-link-arrow"></use></svg>
+							</span>
+						</a>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</section>
+{% endif %}

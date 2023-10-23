@@ -1,16 +1,18 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 2,
-  "name": "fp-faq",
-  "title": "FAQ",
-  "description": "FAQ Block",
+  "name": "fp-pop-up",
+  "title": "Pop-up",
+  "description": "Pop-up Block",
   "category": "custom-blocks",
   "icon": "block-default",
   "keywords": [
-    "faq"
+    "popup",
+    "pop-up",
+    "pop up"
   ],
   "acf": {
-    "mode": "edit",
+    "mode": "preview",
     "renderTemplate": "view.php",
     "postTypes": [
       "post",
@@ -36,7 +38,7 @@
     },
     "typography": false,
     "fullHeight": false,
-    "mode": true
+    "mode": false
   },
   "attributes": {
     "backgroundColor": {
@@ -47,12 +49,9 @@
   "example": {
     "attributes": {
       "data": {
-        "faq": [
-          {
-            "title": "test",
-            "description": "test"
-          }
-        ]
+        "title": "Position your brand directly in the learning process of millions of students",
+        "content": "On fp, we seamlessly integrate your brand in the learning process of your target audience. Whether in between flashcards, notes, lecture slides or as a learning success screen - we make sure to connect your brand only with relevant learners.",
+        "image": "166"
       }
     }
   }

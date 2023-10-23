@@ -7,8 +7,8 @@
   "category": "custom-blocks",
   "icon": "admin-links",
   "keywords": [
-    "test",
-    "quote"
+    "button",
+    "order"
   ],
   "acf": {
     "mode": "preview",

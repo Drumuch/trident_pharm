@@ -14,6 +14,8 @@ class Support {
 		}
 
 		add_action( 'init', [ $this, 'change_post_object' ] );
+		add_action( 'admin_menu', [ $this, 'reusable_blocks_link_wp_admin' ] );
+
 	}
 
 	// Change dashboard Posts to News
@@ -36,6 +38,10 @@ class Support {
 		$labels->all_items          = sprintf( __( 'All %s', 'fp' ), $plural );
 		$labels->menu_name          = $plural;
 		$labels->name_admin_bar     = $plural;
+	}
+
+	public function reusable_blocks_link_wp_admin() {
+		add_menu_page( 'linked_url', 'Reusable Blocks', 'read', 'edit.php?post_type=wp_block', '', 'dashicons-editor-table', 22 );
 	}
 
 	public function theme_support() {

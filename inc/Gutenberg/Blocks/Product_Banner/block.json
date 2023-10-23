@@ -7,8 +7,9 @@
   "category": "custom-blocks",
   "icon": "block-default",
   "keywords": [
-    "test",
-    "quote"
+    "product",
+    "banner",
+    "product banner"
   ],
   "acf": {
     "mode": "preview",
