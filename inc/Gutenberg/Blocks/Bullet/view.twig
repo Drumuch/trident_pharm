@@ -1,8 +1,8 @@
 {% if fields.list | length > 0 %}
 	<section {{ anchor }} {{ attribute }}>
-		<ol class="fp-bullet-block__list {{ fields.style}} d-flex flex-column gap-20 mb-0 p-0 list-none">
+		<ol class="fp-bullet-block__list {{ fields.style}} d-flex flex-column mb-0 p-0 list-none">
 			{% for item in fields.list %}
-				<li class="position-relative pt-65 pt-md-0 ps-md-80 ps-xl-108 pt-xl-40 ps-xl-108">
+				<li class="position-relative pt-65 pt-md-0 ps-md-80 ps-xl-108 ps-xl-108 {{ loop.last ? '' : 'mb-40 mb-lg-60'}}">
 					<span class="decor position-absolute">
 						{% if fields.style == 'ordered' %}
 							<span class="position-relative">{{ loop.index > 9 ? loop.index : '0'~loop.index}}</span>
@@ -14,7 +14,7 @@
 						<h4 class="h3 text-accent-2 mb-14">{{ item.title }}</h4>
 					{% endif %}
 					{% if item.description %}
-						<p class="text-2 mb-20">{{ item.description }}</p>
+						<p class="text-2 {{ loop.last ? '' : 'mb-20 mb-lg-30'}}">{{ item.description }}</p>
 					{% endif %}
 				</li>
 			{% endfor %}

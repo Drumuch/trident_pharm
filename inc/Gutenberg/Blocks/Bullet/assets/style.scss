@@ -45,9 +45,6 @@
         width: 60px;
         height: 60px;
       }
-      @include media-breakpoint-up(xl) {
-        top: 40px;
-      }
     }
     li {
       &:not(:last-child) {
