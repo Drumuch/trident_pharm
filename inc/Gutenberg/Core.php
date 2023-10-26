@@ -29,7 +29,6 @@ class Core {
 		'acf/fp-product-banner',
 		'acf/fp-simple-banner',
 		'acf/fp-order-button',
-		'acf/fp-pop-up',
 	];
 
 

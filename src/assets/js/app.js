@@ -5,6 +5,8 @@ import Footer from "./components/footer";
 import SingleProduct from "./components/single-product";
 import Sidebar from "./components/sidebar";
 
+import "./components/popup";
+
 class App {
   constructor() {
     this.init();

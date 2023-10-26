@@ -56,6 +56,7 @@ class Timber_Settings extends Site {
 		$context['footer_second_menu'] = get_field( 'second_menu', 'options' );
 		$context['footer_third_menu']  = get_field( 'third_menu', 'options' );
 		$context['product_card_title'] = get_field( 'product_page_product_card', 'options' );
+		$context['popup']              = get_field( 'popup' );
 
 		return $context;
 	}
