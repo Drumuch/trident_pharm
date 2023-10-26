@@ -41,7 +41,8 @@
     {% block footer %}
         {% include 'partial/footer.twig' %}
     {% endblock %}
-    <div class="fp-preloader" data-preloader=""></div>
+
+	{% include 'partial/popup.twig' with {'popup': popup} %}
     {{ function('wp_footer') }}
 </body>
 </html>

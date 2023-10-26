@@ -12,6 +12,8 @@
 @import "grid";
 @import "../base/container";
 
+/*! purgecss start ignore */
+
 // HELPERS
 //@import "helpers/clearfix";
 //@import "helpers/colored-links";
@@ -34,8 +36,10 @@
 @import "dropdown";
 //@import "navbar";
 //@import "card";
-//@import "modal";
+@import "modal";
 //@import "accordion";
 @import "offcanvas";
-@import "./utilits";
 
+/*! purgecss end ignore */
+
+@import "./utilits";

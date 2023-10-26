@@ -12,7 +12,8 @@ class Manager {
 		Options\Header::class,
 		Options\Footer::class,
 		Post_Types\Post::class,
-		Shared\Notes::class
+		Shared\Notes::class,
+		Shared\Popup::class
 	];
 
 	public function __construct() {

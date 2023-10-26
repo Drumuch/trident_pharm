@@ -1,4 +1,5 @@
-import Modal from 'bootstrap/js/dist/modal';
+import Modal from "bootstrap/js/dist/modal";
+
 document.addEventListener('DOMContentLoaded', function () {
   let popUp = document.querySelector('[data-pop-up]');
   let clipboard = document.querySelector('[data-clipboard]');
