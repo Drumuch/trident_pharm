@@ -11,7 +11,7 @@
 							"name": "{{ item.title }}",
 							"acceptedAnswer": {
 								"@type": "Answer",
-								"text": "{{ item.description }}"
+								"text": "{{ item.description|e('html') }}"
 							}
 						}{% if not loop.last %},{% endif %}
 					{% endif %}
