@@ -16,7 +16,8 @@
     "renderTemplate": "view.php",
     "postTypes": [
       "post",
-      "product"
+      "product",
+      "blog"
     ]
   },
   "supports": {
