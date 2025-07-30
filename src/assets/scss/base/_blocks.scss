@@ -245,6 +245,7 @@ table {
 }
 
 .wp-block-table {
+  overflow-x: auto;
   @extend %block-indent;
   th,
   td {
