@@ -16,11 +16,13 @@ class Core {
 		'core/table-of-contents',
 		'core/block',
 		'core/template',
+		'core/embed',
 	];
 
 	// TODO: Refactor to use the main block array from Register.php
 	const CUSTOM_BLOCKS = [
 		'acf/fp-faq',
+		'acf/fp-quiz',
 		'acf/fp-bullet',
 		'acf/fp-pros-cons',
 		'acf/fp-latest-products',
@@ -41,6 +43,40 @@ class Core {
 		// remove blocks pattern
 		add_action( 'init', [ $this, 'remove_block_pattern' ] );
 
+		add_action('wp_ajax_acf_button_widget', [ $this, 'acf_button_widget_ajax' ]);
+		add_action('wp_ajax_nopriv_acf_button_widget', [ $this, 'acf_button_widget_ajax' ]);
+
+	}
+
+	public function acf_button_widget_ajax() {
+		check_ajax_referer('acf_widget_nonce', 'nonce');
+
+		$selected = json_decode(stripslashes($_POST['selected']), true) ?: [];
+		$not_selected = json_decode(stripslashes($_POST['not_selected']), true) ?: [];
+		$widget_id = sanitize_text_field($_POST['widget_id']);
+		$post_id = sanitize_text_field($_POST['post_id']);
+
+		$response = [
+			'widget_id' => $widget_id,
+			'selected' => $selected,
+			'not_selected' => $not_selected,
+			'updated_counts' => []
+		];
+
+		foreach ($selected as $val) {
+			$field = $post_id . $widget_id . '_' . $val;
+			$count = get_field($field, $post_id) ?: 0;
+			$new_count = $count + 1;
+			update_field($field, $new_count, $post_id);
+			$response['updated_counts'][$val] = $new_count;
+		}
+		
+		foreach ($not_selected as $val) {
+			$field = $post_id . $widget_id . '_' . $val;
+			$response['updated_counts'][$val] = intval(get_field($field, $post_id)) ?: 0;
+		}
+
+		wp_send_json_success($response);
 	}
 
 	public function remove_block_pattern() {

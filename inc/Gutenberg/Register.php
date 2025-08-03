@@ -16,6 +16,7 @@ class Register {
 		Blocks\Product_Banner\Block::class,
 		Blocks\Simple_Banner\Block::class,
 		Blocks\Order_Button\Block::class,
+		Blocks\Quiz\Block::class,
 	];
 
 	const BLOCKS_DIR = 'Blocks';

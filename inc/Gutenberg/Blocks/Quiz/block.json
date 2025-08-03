@@ -1,0 +1,63 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "fp-quiz",
+  "title": "quiz",
+  "description": "Quiz Block",
+  "category": "custom-blocks",
+  "icon": "block-default",
+  "keywords": [
+    "test",
+    "quote"
+  ],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "view.php",
+    "postTypes": [
+      "post",
+      "page",
+      "product"
+    ]
+  },
+  "supports": {
+    "align": false,
+    "anchor": true,
+    "alignContent": false,
+    "color": {
+      "text": false,
+      "background": false,
+      "link": false
+    },
+    "alignText": false,
+    "spacing": {
+      "customSpacingSize": false,
+      "margin": [
+        "bottom"
+      ]
+    },
+    "typography": false,
+    "fullHeight": false,
+    "mode": false
+  },
+  "attributes": {
+    "backgroundColor": {
+      "type": "string",
+      "default": "purple"
+    }
+  },
+  "example": {
+    "attributes": {
+      "data": {
+        "question": "1 or 2",
+        "quiz": [
+          {
+            "answer": "answer 1"
+          },
+          {
+            "answer": "answer 2"
+          }
+        ]
+      }
+    }
+  }
+}

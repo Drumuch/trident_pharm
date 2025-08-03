@@ -1,0 +1,27 @@
+{% if fields.quiz | length > 0 %}
+	<section {{ anchor }} {{ attribute }} data-quiz-block>
+    <div class="quiz-box" itemscope itemtype="https://schema.org/Question">
+      <p class="quiz-question" itemprop="name">{{ fields.question }}</p>
+      <form id="{{block_id}}" post_id="{{post_id}}" quiz-has-answers="false" class="quiz-form">
+        {% for item in fields.quiz %}
+          {% if item.answer %}
+            <label class="quiz-option" quiz-answer={{ item.answer|replace({' ': ''}) }}  itemscope itemtype="https://schema.org/Answer" itemprop="suggestedAnswer">
+              <input type="checkbox" name="acf_buttons[]" value="{{ item.answer }}">
+              <span>
+                <div class="answer-progress"></div>
+                <div class="custom-checkbox"></div>
+                <div itemprop="text" class="answer-text">{{ item.answer }}</div>
+              </span>
+              <div class="answer-result">
+                {{votes}}
+                <div class="count"></div>
+              </div>
+            </label>
+          {% endif %}
+        {% endfor %}
+        <button type="submit" class="quiz-submit">{{submit}}</button>
+        <div class="spinner"></div>
+      </form>
+    </div>
+	</section>
+{% endif %}

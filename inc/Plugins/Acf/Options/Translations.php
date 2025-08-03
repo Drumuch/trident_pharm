@@ -77,6 +77,27 @@ class Translations extends Options_Page {
 			],
 		] );
 
+		
+		$this->add_tab( 'Quiz' );
+		$this->add_field( [
+			'name'       => 'quiz',
+			'label'      => __( 'Quiz', 'fp' ),
+			'type'       => 'group',
+			'sub_fields' => [
+				[
+					'label'         => __( 'Submit', 'fp' ),
+					'name'          => 'submit',
+					'type'          => 'text',
+					'default_value' => 'Submit..',
+				],
+				[
+					'label'         => __( 'Votes', 'fp' ),
+					'name'          => 'votes',
+					'type'          => 'text',
+					'default_value' => 'Votes --',
+				],
+			],
+		] );
 		$this->add_tab( '404 Page' );
 		$this->add_field( [
 			'name'       => '404_page',
